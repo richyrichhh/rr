@@ -19,13 +19,18 @@ The app will consist of a single page with the game. The top of the page will ha
 JavaScript
 
 **game.js ->** actual game “board” where everything will live, tracks score and dropped items and contains the actions the pc and enemy characters can use (attacks)
+
 **player.js ->** object for player character, will track health and applied upgrades too
+
 **enemy.js ->** enemy objects, will have health and will be destroyed when health <= 0
+
 
 
 ## Implementation Timeline
 **Day 1:** Set up Node, get project set up with the 3 core files, build basic board, get key binds working
+
 **Day 2-3:** Set up player character and attacks/actions, goal to have a moving player character on the game board (not yet populated by enemies)
+
 **Day 4:** Copy and paste player character model to make enemies, build basic AI
 
 ## Bonus Features
