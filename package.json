@@ -1,0 +1,24 @@
+{
+  "name": "rr",
+  "version": "1.0.0",
+  "description": "## Background From Final Fight to Streets of Rage to Dynasty Warriors, beat em up games have been an arcade staple for over a generation. The purpose of the game is to provide entertainment to users who will control a character to fight endless hordes of enemies to try and achieve a high score.",
+  "main": "index.js",
+  "dependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richyrichhh/rr.git"
+  },
+  "author": "richie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richyrichhh/rr/issues"
+  },
+  "homepage": "https://github.com/richyrichhh/rr#readme"
+}
