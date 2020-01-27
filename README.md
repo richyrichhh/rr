@@ -13,6 +13,7 @@ Users will be able to:
 
 ## Wireframes
 The app will consist of a single page with the game. The top of the page will have a title and banner. The game itself will have the health bar and score at the top, with the player character along with surrounding enemies shown. The control scheme for the game as well as links to my GitHub/LinkedIn will be at the bottom.
+
 ![Wireframe](https://github.com/richyrichhh/rr/blob/master/images/wireframe.png?raw=true)
 
 ## Architecture and Technologies
@@ -35,5 +36,7 @@ JavaScript
 
 ## Bonus Features
 Smooth animations
+
 Upgrades
+
 More player characters/upgrades?
