@@ -35,6 +35,8 @@ JavaScript
 **Day 4:** Copy and paste player character model to make enemies, build basic AI
 
 ## Bonus Features
+Upgrades
+
 Smooth animations
 
 Upgrades
