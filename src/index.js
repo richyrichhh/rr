@@ -1,39 +1,40 @@
-const Game = require('./game.js');
-const GameView = require('./game_view.js');
+import Game from './game/game';
+import Character from './game/character';
+import Player from './game/player';
+import Enemy from './game/enemy';
+// const View = require('./view/view');
 const canvas = document.getElementById('game-canvas');
-const Bullet = require('./bullet.js');
-const Asteroid = require('./asteroid.js');
 
-window.Bullet = Bullet;
-window.Asteroid = Asteroid;
+
+
+
+window.Player = Player;
+window.Enemy = Enemy;
+window.Character = Character;
 
 let game = new Game(canvas);
-let view = new GameView(game, canvas.getContext("2d"));
+// let view = new GameView(game, canvas.getContext("2d"));
 
-key('a', ()=>{ 
-  game.ship.power([-25,0]);
+key('left', () => {
+  // game.player.move([-25, 0]);
 });
 
-key('s', ()=>{ 
-  game.ship.power([0,25]);
+key('down', () => {
+  // game.player.move([0, 25]);
 });
 
-key('d', ()=>{ 
-  game.ship.power([25,0]);
+key('right', () => {
+  // game.player.move([25, 0]);
 });
 
-key('w', ()=>{ 
-  game.ship.power([0,-25]);
+key('up', () => {
+  // game.player.move([0, -25]);
 });
 
-key('space', ()=>{ 
-  game.ship.fireBullet(game);
-  // For generate more bullets
-  game.ship.fireBullet(game);
-  game.ship.fireBullet(game);
-  game.ship.fireBullet(game);
+key('a', () => {
+  // game.player.attack();
 });
 
-view.start();
-view.drawBackground(canvas);
+// view.start();
+// view.drawBackground(canvas);
 

@@ -31,7 +31,7 @@ Game.prototype.addAsteroids = function() {
 Game.prototype.randomPosition = function() {
   let random_x = Math.floor(Math.random() * this.dimensions[`width`]);
   let random_y = Math.floor(Math.random() * this.dimensions[`height`]);
-  return [ random_x, random_y];
+  return [random_x, random_y];
 };
 
 Game.prototype.draw = function(ctx){

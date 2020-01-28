@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers|Italianno&display=swap');
+
 body {
   width: 100vw;
-  height: 120vh;
+  height: 130vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,14 +14,30 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: #333;
 }
 
 #app-top > h1 {
-  font: 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#heading-top {
+  font-family: 'Italianno', cursive;
+  font-size: 20px;
+  width: 100%;
+
+}
+
+#heading-bot {
+  font-family: 'Bangers', cursive;
+  font-size: 54px;
 }
 
 #app-game {
-  height: 85vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -27,6 +45,13 @@ body {
 }
 
 #app-bot {
-  height: 20vh;
+  height: 15vh;
   width: 100%;
+  background-color: #333;
+}
+
+canvas {
+  background-image: url(https://c1.wallpaperflare.com/preview/15/6/405/court-basketball-pitch-net-thumbnail.jpg);
+  background-size: cover;
+  background-position: center;
 }
