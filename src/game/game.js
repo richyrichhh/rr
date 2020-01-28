@@ -10,6 +10,8 @@ export default class Game {
     this.dimensions = { width: canvas.width, height: canvas.height },
     this.ctx = canvas.getContext("2d"),
     this.chars.push(this.player);
+    this.player.draw(this.ctx);
+
   }
 
   randomPosAtEdges() {
@@ -25,7 +27,42 @@ export default class Game {
 
   draw() {
     for (let x of this.chars) {
-      x.draw(ctx);
+      x.draw(this.ctx);
     }
-  };
+  }
+
+  step() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.draw();
+  }
+
+  animateStand() {
+    for (var char of this.chars) {
+      if (char.state === 'stand') {
+        if (char.frame + 1 >= char.animations[char.state].frames) char.frame = 0;
+        else char.frame += 1;
+      }
+    }
+  }
+
+  animateWalk() {
+    for (var char of this.chars) {
+      if (char.state === 'move') {
+        if (char.frame + 1 >= char.animations[char.state].frames) char.frame = 0;
+        else char.frame += 1;
+      }
+    }
+  }
+
+  start() {
+    setInterval(() => {
+      this.step();
+    }, 30);
+    setInterval(() => {
+      this.animateStand();
+    }, 2500);
+    setInterval(() => {
+      this.animateWalk();
+    }, 240);
+  }
 }

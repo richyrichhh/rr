@@ -13,26 +13,27 @@ window.Enemy = Enemy;
 window.Character = Character;
 
 let game = new Game(canvas);
+game.start();
 // let view = new GameView(game, canvas.getContext("2d"));
 
 key('left', () => {
-  // game.player.move([-25, 0]);
+  game.player.move('left');
 });
 
 key('down', () => {
-  // game.player.move([0, 25]);
+  game.player.move('down');
 });
 
 key('right', () => {
-  // game.player.move([25, 0]);
+  game.player.move('right');
 });
 
 key('up', () => {
-  // game.player.move([0, -25]);
+  game.player.move('up');
 });
 
 key('a', () => {
-  // game.player.attack();
+  game.player.attack();
 });
 
 // view.start();
