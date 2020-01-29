@@ -33,12 +33,23 @@ export default class Game {
 
   step() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.animate();
     this.draw();
   }
 
   animateStand() {
     for (var char of this.chars) {
       if (char.state === 'stand') {
+        if (char.frame + 1 >= char.animations[char.state].frames) char.frame = 0;
+        else char.frame += 1;
+      }
+    }
+  }
+  animate() {
+    for (var char of this.chars) {
+      if (char.frameTime > 0) char.frameTime -= 1;
+      else {
+        char.frameTime = char.frameLength;
         if (char.frame + 1 >= char.animations[char.state].frames) char.frame = 0;
         else char.frame += 1;
       }
@@ -58,11 +69,11 @@ export default class Game {
     setInterval(() => {
       this.step();
     }, 30);
-    setInterval(() => {
-      this.animateStand();
-    }, 2500);
-    setInterval(() => {
-      this.animateWalk();
-    }, 240);
+    // setInterval(() => {
+    //   this.animateStand();
+    // }, 2500);
+    // setInterval(() => {
+    //   this.animateWalk();
+    // }, 240);
   }
 }
