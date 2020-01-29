@@ -37,10 +37,12 @@ export default class Player extends Character {
   }
 
   die() {
-    this.state = 'death';
-    this.frame = 0;
-    this.frameLength = 8;
-    this.frameTime = 8;
-    setTimeout(() => this.game.gameOver(), 3000);
+    if (this.state !== 'death') {
+      this.state = 'death';
+      this.frame = 0;
+      this.frameLength = 8;
+      this.frameTime = 8;
+      setTimeout(() => this.game.gameOver(), 3000);
+    }
   }
 }

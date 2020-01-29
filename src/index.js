@@ -22,7 +22,7 @@ const moveUp = _.throttle(() => game.player.move('up'), 164);
 const attack = _.throttle(() => game.player.attack(), 1000);
 // let view = new GameView(game, canvas.getContext("2d"));
 document.addEventListener('keydown', e => {
-  console.log(e.code);
+  if (game.player.state === 'death') return null;
   if(e.code === 'ArrowLeft') {
     moveLeft();
   };
