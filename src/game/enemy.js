@@ -41,8 +41,10 @@ export default class Enemy extends Character {
 
   
   AI() {
-    this.move(dirs[Math.floor(Math.random() * 3.99999)]);
-    if (distance(this.position, this.game.player.position) < 100) this.attack();
+    if (this.state !== 'death') {
+      this.move(dirs[Math.floor(Math.random() * 3.99999)]);
+      if (distance(this.position, this.game.player.position) < 100) this.attack();
+    }
   }
 
   startAI() {
