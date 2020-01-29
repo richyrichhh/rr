@@ -32,8 +32,8 @@ export default class Game {
   }
 
   step() {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.animate();
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.draw();
   }
 
@@ -47,12 +47,14 @@ export default class Game {
   }
   animate() {
     for (var char of this.chars) {
+      if (char.frameTime > char.frameLength) char.frameTime = char.frameLength;
       if (char.frameTime > 0) char.frameTime -= 1;
       else {
         char.frameTime = char.frameLength;
         if (char.frame + 1 >= char.animations[char.state].frames) char.frame = 0;
         else char.frame += 1;
       }
+      char.handleMovement();
     }
   }
 

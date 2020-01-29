@@ -2,7 +2,7 @@ import Game from './game/game';
 import Character from './game/character';
 import Player from './game/player';
 import Enemy from './game/enemy';
-import { throttle } from './util';
+import _ from 'underscore';
 // const View = require('./view/view');
 const canvas = document.getElementById('game-canvas');
 
@@ -15,23 +15,27 @@ window.Character = Character;
 
 let game = new Game(canvas);
 game.start();
+const moveLeft = _.throttle(() => game.player.move('left'), 149);
+const moveDown = _.throttle(() => game.player.move('down'), 149);
+const moveRight = _.throttle(() => game.player.move('right'), 149);
+const moveUp = _.throttle(() => game.player.move('up'), 149);
 // let view = new GameView(game, canvas.getContext("2d"));
 document.addEventListener('keydown', e => {
   console.log(e.code);
   if(e.code === 'ArrowLeft') {
-    throttle(game.player.move('left'), 200);
+    moveLeft();
   };
 
   if(e.code === 'ArrowDown') {
-    throttle(game.player.move('down'), 200);
+    moveDown();
   };
 
   if(e.code === 'ArrowRight') {
-    throttle(game.player.move('right'), 200);
+    moveRight();
   };
 
   if(e.code === 'ArrowUp') {
-    throttle(game.player.move('up'), 200);
+    moveUp();
   };
 });
 // key('left', () => {

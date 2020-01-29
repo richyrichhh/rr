@@ -22,6 +22,7 @@ export default class Character {
   resetAnimation() {
     this.state = 'stand';
     this.frame = 0;
+    this.frameLength = 80;
   }
 
   handleReset() {
@@ -71,7 +72,7 @@ export default class Character {
   }
 
   draw(ctx) {
-    this.handleMovement();
+    // this.handleMovement();
     var img = new Image();
     var pos = this.position;
     var lastDirLR = this.lastDirLR;
