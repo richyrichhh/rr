@@ -11,6 +11,7 @@ export default class Character {
     this.game = game,
     this.upgrades = [];
     this.state = 'stand';
+    this.lastDir = '';
     this.lastDirLR = 'left';
     this.lastDirUD = 'up';
     this.frame = 0;
@@ -26,7 +27,7 @@ export default class Character {
   }
 
   handleReset() {
-    if (this.movement[0] === 0 && this.movement[1] === 0) {
+    if (this.movement[0] === 0 && this.movement[1] === 0 && this.state === 'move') {
       this.resetAnimation();
     }
   }
@@ -90,24 +91,28 @@ export default class Character {
         this.movement[1] = this.position[1];
       } else this.movement[1] -= 20;
       this.lastDirUD = 'up';
+      this.lastDir = 'up';
     }
     else if (dir === 'down') {
       if (this.position[1] + 20 > this.game.dimensions['height']) {
         this.movement[1] = this.game.dimensions['height'] - this.position[1];
       } else this.movement[1] += 20;
       this.lastDirUD = 'down';
+      this.lastDir = 'down';
     }
     else if (dir === 'left') {
       if (this.position[0] - 20 < 0) {
         this.movement[0] = this.position[0];
       } else this.movement[0] -= 20;
       this.lastDirLR = 'left';
+      this.lastDir = 'left';
     }
     else if (dir === 'right') {
       if (this.position[0] + 20 > this.game.dimensions['width']) {
         this.movement[0] = this.game.dimensions['width'] - this.position[0];
       } else this.movement[0] += 20;
       this.lastDirLR = 'right';
+      this.lastDir = 'right';
     }
 
     // this.resetAnimation = this.resetAnimation.bind(this);
@@ -115,8 +120,39 @@ export default class Character {
   }
 
   attack() {
-    if (this.lastDirUD === 'up') {
+    console.log('attacking');
+    this.state = 'attack';
+    this.frameLength = 8;
+    this.frameTime = 8;
+    this.frame = 0;
+    let x;
+    let y;
+    if (this.lastDir === 'up') {
+      x = [this.position[0] - 20, this.position[0] + 20];
+      y = [this.position[1] - 60, this.position[1]];
+    }
+    else if (this.lastDir === 'down') {
+      x = [this.position[0] - 20, this.position[0] + 20];
+      y = [this.position[1], this.position[1] + 60];
+    }
+    else if (this.lastDir === 'left') {
+      y = [this.position[1] - 30, this.position[1] + 30];
+      x = [this.position[0] - 60, this.position[0]];
+    }
+    else if (this.lastDir === 'right') {
+      y = [this.position[1] - 30, this.position[1] + 30];
+      x = [this.position[0], this.position[0] + 60];
+    }
+    this.game.handleAttack(this, x, y);
+  }
 
+  die() {
+    if (this.state !== 'death') {
+      this.state = 'death';
+      this.frame = 0;
+      this.frameLength = 8;
+      this.frameTime = 8;
+      setTimeout(() => this.game.chars.splice(this.game.chars.indexOf(this), 1), 1000);
     }
   }
 }

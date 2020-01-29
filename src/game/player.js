@@ -19,13 +19,28 @@ export default class Player extends Character {
         }
       },
       attack: {
-        frames: 0,
+        frames: 2,
         frameData: {
-          up: [],
-          down: []
+          up: ['https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/attack-0_g0wue2.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/attack-1_pso6at.png'],
+          down: ['https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/attack-0_g0wue2.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/attack-1_pso6at.png']
+        }
+      },
+      death: {
+        frames: 6,
+        frameData: {
+          up: ['https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-0_wwm73z.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-1_tkd6dj.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-2_wxhfjt.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-3_nnelcj.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-4_uzsbho.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-5_mkgvo4.png'],
+          down: ['https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-0_wwm73z.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-1_tkd6dj.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-2_wxhfjt.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-3_nnelcj.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-4_uzsbho.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-5_mkgvo4.png']
         }
       }
     }
     this.imageUrl = this.animations.stand.frameData.down[0]
+  }
+
+  die() {
+    this.state = 'death';
+    this.frame = 0;
+    this.frameLength = 8;
+    this.frameTime = 8;
+    setTimeout(() => this.game.gameOver(), 3000);
   }
 }
