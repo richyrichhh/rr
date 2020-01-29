@@ -121,6 +121,8 @@ export default class Character {
 
   attack() {
     console.log('attacking');
+    if (this.state === 'death') return null;
+
     this.state = 'attack';
     this.frameLength = 8;
     this.frameTime = 8;
