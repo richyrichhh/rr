@@ -12,14 +12,14 @@ export default class Game {
     this.chars.push(this.player);
     this.player.draw(this.ctx);
     this.interval;
+    this.kills = 0;
+    this.baseEnemies = 1;
+    this.ctx.font = '30px proxima-nova'
   }
 
-  spawnEnemies(n) {
-    let c = n;
-    while (c > 0) {
-      c -= 1
-      this.createEnemy();
-    }
+  factory() {
+    this.createEnemy();
+    if (this.player.state !== 'death') setTimeout(() => this.factory(), Math.floor(Math.random()*5000));
   }
 
   randomPosAtEdges() {
@@ -32,6 +32,14 @@ export default class Game {
     let enemy = new Enemy(this);
     this.chars.push(enemy);
   }
+
+  // spawnEnemies(n, l = 1) {
+  //   let c = n + (5 * l);
+  //   while (c > 0) {
+  //     c -= 1
+  //     this.createEnemy();
+  //   }
+  // }
 
   handleAttack(unit, x, y) {
     for (var char of this.chars) {
@@ -47,22 +55,18 @@ export default class Game {
     for (let x of this.chars) {
       x.draw(this.ctx);
     }
+    this.ctx.fillText(this.kills, 25, 35);
   }
 
   step() {
     this.animate();
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.draw();
+    setTimeout(() => requestAnimationFrame(this.step.bind(this)), 33);
+    // requestAnimationFrame(this.step.bind(this));
+
   }
 
-  animateStand() {
-    for (var char of this.chars) {
-      if (char.state === 'stand') {
-        if (char.frame + 1 >= char.animations[char.state].frames) char.frame = 0;
-        else char.frame += 1;
-      }
-    }
-  }
   animate() {
     for (var char of this.chars) {
       if (char.frameTime > char.frameLength) char.frameTime = char.frameLength;
@@ -80,20 +84,31 @@ export default class Game {
     }
   }
 
-  animateWalk() {
-    for (var char of this.chars) {
-      if (char.state === 'move') {
-        if (char.frame + 1 >= char.animations[char.state].frames) char.frame = 0;
-        else char.frame += 1;
-      }
-    }
-  }
+  // animateStand() {
+  //   for (var char of this.chars) {
+  //     if (char.state === 'stand') {
+  //       if (char.frame + 1 >= char.animations[char.state].frames) char.frame = 0;
+  //       else char.frame += 1;
+  //     }
+  //   }
+  // }
+
+  // animateWalk() {
+  //   for (var char of this.chars) {
+  //     if (char.state === 'move') {
+  //       if (char.frame + 1 >= char.animations[char.state].frames) char.frame = 0;
+  //       else char.frame += 1;
+  //     }
+  //   }
+  // }
 
   start() {
-    this.spawnEnemies(10);
-    this.interval = setInterval(() => {
-      this.step();
-    }, 33);
+    this.factory();
+    requestAnimationFrame(this.step.bind(this));
+    // this.interval = setInterval(() => {
+    //   window.requestAnimationFrame(this.step());
+    // }, 33);
+    // setTimeout(() => this.factory(), 5000);
   }
 
   gameOver() {

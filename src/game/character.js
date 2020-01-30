@@ -120,9 +120,7 @@ export default class Character {
   }
 
   attack() {
-    console.log('attacking');
     if (this.state === 'death') return null;
-
     this.state = 'attack';
     this.frameLength = 8;
     this.frameTime = 8;
@@ -130,20 +128,20 @@ export default class Character {
     let x;
     let y;
     if (this.lastDir === 'up') {
-      x = [this.position[0] - 20, this.position[0] + 20];
-      y = [this.position[1] - 60, this.position[1]];
+      x = [this.position[0] - 10, this.position[0] + 20];
+      y = [this.position[1] - 50, this.position[1] + 20];
     }
     else if (this.lastDir === 'down') {
-      x = [this.position[0] - 20, this.position[0] + 20];
-      y = [this.position[1], this.position[1] + 60];
+      x = [this.position[0] - 10, this.position[0] + 20];
+      y = [this.position[1] - 10, this.position[1] + 60];
     }
     else if (this.lastDir === 'left') {
-      y = [this.position[1] - 30, this.position[1] + 30];
-      x = [this.position[0] - 60, this.position[0]];
+      y = [this.position[1] - 20, this.position[1] + 30];
+      x = [this.position[0] - 50, this.position[0] + 20];
     }
     else if (this.lastDir === 'right') {
-      y = [this.position[1] - 30, this.position[1] + 30];
-      x = [this.position[0], this.position[0] + 60];
+      y = [this.position[1] - 20, this.position[1] + 30];
+      x = [this.position[0] - 10, this.position[0] + 60];
     }
     this.game.handleAttack(this, x, y);
   }

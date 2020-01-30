@@ -10,29 +10,29 @@ export default class Enemy extends Character {
       stand: {
         frames: 2,
         frameData: {
-          up: ['https://res.cloudinary.com/fatrichie/image/upload/v1580242494/charles/ref/stand-up-0_oe6xna.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242494/charles/ref/stand-up-1_lnwpyx.png'],
-          down: ['https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/stand-down-0_u9rszx.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242494/charles/ref/stand-down-1_k2qpmc.png']
+          up: ['../src/game/animations/referee/stand-up-0.png', '../src/game/animations/referee/stand-up-1.png'],
+          down: ['../src/game/animations/referee/stand-down-0.png', '../src/game/animations/referee/stand-down-1.png']
         }
       },
       move: {
         frames: 6,
         frameData: {
-          up: ['https://res.cloudinary.com/fatrichie/image/upload/v1580242508/charles/ref/walk-up-0_jecrhm.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242508/charles/ref/walk-up-1_gbjnsa.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242508/charles/ref/walk-up-2_bya0jv.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242508/charles/ref/walk-up-3_zyivo7.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242508/charles/ref/walk-up-4_mairwr.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242508/charles/ref/walk-up-5_o3iyup.png'],
-          down: ['https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/walk-down-0_mk1idv.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242494/charles/ref/walk-down-1_wthncz.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/walk-down-2_kbdx2z.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242494/charles/ref/walk-down-3_pyorix.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242494/charles/ref/walk-down-4_keystc.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242494/charles/ref/walk-down-5_bsw8y0.png']
+          up: ['../src/game/animations/referee/walk-up-0.png', '../src/game/animations/referee/walk-up-1.png', '../src/game/animations/referee/walk-up-2.png', '../src/game/animations/referee/walk-up-3.png', '../src/game/animations/referee/walk-up-4.png', '../src/game/animations/referee/walk-up-5.png'],
+          down: ['../src/game/animations/referee/walk-down-0.png', '../src/game/animations/referee/walk-down-1.png', '../src/game/animations/referee/walk-down-2.png', '../src/game/animations/referee/walk-down-3.png', '../src/game/animations/referee/walk-down-4.png', '../src/game/animations/referee/walk-down-5.png']
         }
       },
       attack: {
         frames: 2,
         frameData: {
-          up: ['https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/attack-0_g0wue2.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/attack-1_pso6at.png'],
-          down: ['https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/attack-0_g0wue2.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/attack-1_pso6at.png']
+          up: ['../src/game/animations/referee/attack-0.png', '../src/game/animations/referee/attack-1.png'],
+          down: ['../src/game/animations/referee/attack-0.png', '../src/game/animations/referee/attack-1.png']
         }
       },
       death: {
         frames: 6,
         frameData: {
-          up: ['https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-0_wwm73z.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-1_tkd6dj.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-2_wxhfjt.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-3_nnelcj.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-4_uzsbho.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-5_mkgvo4.png'],
-          down: ['https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-0_wwm73z.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-1_tkd6dj.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-2_wxhfjt.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-3_nnelcj.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-4_uzsbho.png', 'https://res.cloudinary.com/fatrichie/image/upload/v1580242493/charles/ref/death-5_mkgvo4.png']
+          up: ['../src/game/animations/referee/death-0.png', '../src/game/animations/referee/death-1.png', '../src/game/animations/referee/death-2.png', '../src/game/animations/referee/death-3.png', '../src/game/animations/referee/death-4.png', '../src/game/animations/referee/death-5.png'],
+          down: ['../src/game/animations/referee/death-0.png', '../src/game/animations/referee/death-1.png', '../src/game/animations/referee/death-2.png', '../src/game/animations/referee/death-3.png', '../src/game/animations/referee/death-4.png', '../src/game/animations/referee/death-5.png']
         }
       }
     }
@@ -49,5 +49,18 @@ export default class Enemy extends Character {
 
   startAI() {
     setInterval(() => this.AI(), 1000);
+  }
+
+  die() {
+    if (this.state !== 'death') {
+      this.state = 'death';
+      this.frame = 0;
+      this.frameLength = 8;
+      this.frameTime = 8;
+      this.game.kills += 1;
+      setTimeout(() => {
+        this.game.chars.splice(this.game.chars.indexOf(this), 1)
+      }, 1000);
+    }
   }
 }
