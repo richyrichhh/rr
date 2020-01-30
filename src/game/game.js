@@ -113,6 +113,6 @@ export default class Game {
 
   gameOver() {
     clearInterval(this.interval);
-    alert('u suck');
+    alert(`${this.kills} kills!`);
   }
 }
