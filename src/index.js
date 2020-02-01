@@ -49,7 +49,7 @@ let gameStart = () => {
   });
 }
 
-document.addEventListener('keydown', gameStart);
+setTimeout(() => document.addEventListener('keydown', gameStart), 2000);
 
 
 // key('left', () => {
