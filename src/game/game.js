@@ -15,7 +15,7 @@ export default class Game {
     this.interval;
     this.kills = 0;
     this.baseEnemies = 1;
-    this.menu;
+    this.menu = new StartMenu(this, this.ctx);
   }
 
   factory() {
@@ -111,10 +111,6 @@ export default class Game {
     //   window.requestAnimationFrame(this.step());
     // }, 33);
     // setTimeout(() => this.factory(), 5000);
-  }
-
-  startMenu() {
-    this.menu = new StartMenu(this, this.ctx);
   }
 
   gameOver() {
