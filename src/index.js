@@ -14,13 +14,19 @@ window.Enemy = Enemy;
 window.Character = Character;
 
 let game = new Game(canvas);
-game.start();
+game.startMenu();
 const moveLeft = _.throttle(() => game.player.move('left'), 164);
 const moveDown = _.throttle(() => game.player.move('down'), 164);
 const moveRight = _.throttle(() => game.player.move('right'), 164);
 const moveUp = _.throttle(() => game.player.move('up'), 164);
 const attack = _.throttle(() => game.player.attack(), 1000);
 // let view = new GameView(game, canvas.getContext("2d"));
+document.addEventListener('keydown', gameStart);
+let gameStart = () => {
+  game.start();
+  game.menu = null;
+  document.removeEventListener('keydown', gameStart);
+}
 document.addEventListener('keydown', e => {
   if (game.player.state === 'death') return null;
   if(e.code === 'ArrowLeft') {
