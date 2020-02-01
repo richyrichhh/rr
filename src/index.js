@@ -14,7 +14,7 @@ window.Enemy = Enemy;
 window.Character = Character;
 
 let game = new Game(canvas);
-game.startMenu();
+game.menu.start();
 const moveLeft = _.throttle(() => game.player.move('left'), 164);
 const moveDown = _.throttle(() => game.player.move('down'), 164);
 const moveRight = _.throttle(() => game.player.move('right'), 164);
@@ -23,6 +23,7 @@ const attack = _.throttle(() => game.player.attack(), 1000);
 // let view = new GameView(game, canvas.getContext("2d"));
 let gameStart = () => {
   game.start();
+  clearInterval(game.menu.renderInt);
   game.menu = null;
   document.removeEventListener('keydown', gameStart);
   document.addEventListener('keydown', e => {
