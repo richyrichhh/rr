@@ -1,6 +1,7 @@
 import Player from './player';
 import Enemy from './enemy';
 import { between } from '../util';
+import StartMenu from '../menu/start-menu';
 
 export default class Game {
   constructor(canvas) {
@@ -14,7 +15,7 @@ export default class Game {
     this.interval;
     this.kills = 0;
     this.baseEnemies = 1;
-    this.ctx.font = '30px proxima-nova'
+    this.menu;
   }
 
   factory() {
@@ -103,12 +104,17 @@ export default class Game {
   // }
 
   start() {
+    this.ctx.font = '30px proxima-nova';
     this.factory();
     requestAnimationFrame(this.step.bind(this));
     // this.interval = setInterval(() => {
     //   window.requestAnimationFrame(this.step());
     // }, 33);
     // setTimeout(() => this.factory(), 5000);
+  }
+
+  startMenu() {
+    this.menu = new StartMenu(this, this.ctx);
   }
 
   gameOver() {
