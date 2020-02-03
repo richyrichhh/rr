@@ -48,11 +48,14 @@ export default class Player extends Character {
     var img = new Image();
     var pos = this.position;
     var lastDirLR = this.lastDirLR;
+    var lastDirUD = this.lastDirUD;
     // img.onload = function() {
     //   drawImage(ctx, img, pos[0], pos[1], 84, 75, 0, (lastDirLR === 'left' ? true : false), false);
     // }
     img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
-    drawImage(ctx, img, pos[0], pos[1], 100, 140, 0, (lastDirLR === 'left' ? true : false), false);
+    if (this.state === 'stand') drawImage(ctx, img, pos[0], pos[1], 100, 140, 0, ((lastDirUD === 'down' && lastDirLR === 'left') || (lastDirUD === 'up' && lastDirLR === 'right') ? true : false), false);
+    else drawImage(ctx, img, pos[0], pos[1], 84, 75, 0, (lastDirLR === 'left' ? true : false), false);
+    
   }
 
   die() {
