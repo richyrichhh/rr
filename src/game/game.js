@@ -44,8 +44,8 @@ export default class Game {
 
   handleAttack(unit, x, y) {
     for (var char of this.chars) {
-      console.dir(char);
-      console.log(typeof unit);
+      // console.dir(char);
+      // console.log(typeof unit);
       if (char.__proto__.constructor.name !== unit.__proto__.constructor.name) {
         if (between(char.position[0], x[0], x[1]) && between(char.position[1], y[0], y[1])) char.die();
       }

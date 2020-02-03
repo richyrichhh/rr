@@ -10,7 +10,7 @@ export default class startMenu {
   }
 
   render() {
-    console.log('rendering startmenu');
+    // console.log('rendering startmenu');
     // this.ctx.clearRect(0, 0, this.game.canvas.width, this.game.canvas.height);
     this.ctx.fillStyle = "black";
     let img = new Image();
