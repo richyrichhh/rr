@@ -10,13 +10,15 @@ export default class Character {
     this.currentHealth = 100,
     this.game = game,
     this.upgrades = [];
-    this.state = 'stand';
+    this.state;
     this.lastDir = '';
     this.lastDirLR = 'left';
     this.lastDirUD = 'up';
-    this.frame = 0;
-    this.frameLength = 80;
+    this.frame;
+    this.frameLength;
     this.frameTime = this.frameLength;
+    
+    this.resetAnimation();
     // this.resetAnimation = this.resetAnimation.bind(this);
   }
 

@@ -1,14 +1,15 @@
 import Character from './character';
+import { drawImage } from '../util';
 
 export default class Player extends Character {
   constructor(game) {
     super(game, [600, 300]);
     this.animations = {
       stand: {
-        frames: 2,
+        frames: 5,
         frameData: {
-          up: ['../src/game/animations/referee/stand-up-0.png', '../src/game/animations/referee/stand-up-1.png'],
-          down: ['../src/game/animations/referee/stand-down-0.png', '../src/game/animations/referee/stand-down-1.png']
+          up: ['../src/game/animations/barkley/stand-up-0.png', '../src/game/animations/barkley/stand-up-1.png', '../src/game/animations/barkley/stand-up-2.png', '../src/game/animations/barkley/stand-up-3.png', '../src/game/animations/barkley/stand-up-4.png'],
+          down: ['../src/game/animations/barkley/stand-down-0.png', '../src/game/animations/barkley/stand-down-1.png', '../src/game/animations/barkley/stand-down-2.png', '../src/game/animations/barkley/stand-down-3.png', '../src/game/animations/barkley/stand-down-4.png', '../src/game/animations/barkley/stand-down-5.png']
         }
       },
       move: {
@@ -34,6 +35,24 @@ export default class Player extends Character {
       }
     }
     
+  }
+
+  resetAnimation() {
+    this.state = 'stand';
+    this.frame = 0;
+    this.frameLength = 3;
+  }
+
+  draw(ctx) {
+    // this.handleMovement();
+    var img = new Image();
+    var pos = this.position;
+    var lastDirLR = this.lastDirLR;
+    // img.onload = function() {
+    //   drawImage(ctx, img, pos[0], pos[1], 84, 75, 0, (lastDirLR === 'left' ? true : false), false);
+    // }
+    img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
+    drawImage(ctx, img, pos[0], pos[1], 100, 140, 0, (lastDirLR === 'left' ? true : false), false);
   }
 
   die() {
