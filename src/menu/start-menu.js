@@ -22,8 +22,8 @@ export default class startMenu {
       this.ctx.fillText(`The referees are blind!`, this.game.canvas.width / 2 - 240, this.game.canvas.height / 2 + 50, 500);
       this.ctx.fillText(`It's up to Charles Barkley to help them see the light.`, this.game.canvas.width / 2 - 240, this.game.canvas.height / 2 + 80, 500);
       this.ctx.fillText(`Controls:`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 130, 500);
-      this.ctx.fillText(`↑↓←→ Movement`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 155, 500);
-      this.ctx.fillText(`A    Attack`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 180, 500);
+      this.ctx.fillText(`Movement : ↑↓←→`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 155, 500);
+      this.ctx.fillText(`Attack : A`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 180, 500);
       this.ctx.fillText(`Press any key to start`, this.game.canvas.width / 2 + 100, this.game.canvas.height / 2 + 155, 500);
       document.addEventListener('keydown', gameStart);
 
