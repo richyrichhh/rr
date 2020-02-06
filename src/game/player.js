@@ -16,7 +16,8 @@ export default class Player extends Character {
         frames: 6,
         frameData: {
           up: ['../src/game/animations/referee/walk-up-0.png', '../src/game/animations/referee/walk-up-1.png', '../src/game/animations/referee/walk-up-2.png', '../src/game/animations/referee/walk-up-3.png', '../src/game/animations/referee/walk-up-4.png', '../src/game/animations/referee/walk-up-5.png'],
-          down: ['../src/game/animations/referee/walk-down-0.png', '../src/game/animations/referee/walk-down-1.png', '../src/game/animations/referee/walk-down-2.png', '../src/game/animations/referee/walk-down-3.png', '../src/game/animations/referee/walk-down-4.png', '../src/game/animations/referee/walk-down-5.png']
+          down: ['../src/game/animations/referee/walk-down-0.png', '../src/game/animations/referee/walk-down-1.png', '../src/game/animations/referee/walk-down-2.png', '../src/game/animations/referee/walk-down-3.png', '../src/game/animations/referee/walk-down-4.png', '../src/game/animations/referee/walk-down-5.png'],
+          right: ['../src/game/animations/referee/walk-right-0.png', '../src/game/animations/referee/walk-right-1.png', '../src/game/animations/referee/walk-right-2.png', '../src/game/animations/referee/walk-right-3.png', '../src/game/animations/referee/walk-right-4.png', '../src/game/animations/referee/walk-right-5.png', '../src/game/animations/referee/walk-right-6.png', '../src/game/animations/referee/walk-right-7.png']
         }
       },
       attack: {
