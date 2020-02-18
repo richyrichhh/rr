@@ -13,8 +13,8 @@ window.Player = Player;
 window.Enemy = Enemy;
 window.Character = Character;
 
-let game = new Game(canvas);
-game.menu.start();
+
+
 const moveLeft = _.throttle(() => game.player.move('left'), 164);
 const moveDown = _.throttle(() => game.player.move('down'), 164);
 const moveRight = _.throttle(() => game.player.move('right'), 164);
@@ -49,7 +49,6 @@ let gameStart = () => {
   });
 }
 
-setTimeout(() => document.addEventListener('keydown', gameStart), 2000);
 
 
 // key('left', () => {
@@ -74,4 +73,10 @@ setTimeout(() => document.addEventListener('keydown', gameStart), 2000);
 
 // view.start();
 // view.drawBackground(canvas);
+let game = new Game(canvas);
 
+window.addEventListener('load', () => {
+  game.menu.start();
+}, false);
+
+setTimeout(() => document.addEventListener('keydown', gameStart), 2000);
