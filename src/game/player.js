@@ -1,4 +1,5 @@
 import Character from './character';
+import TestBox from './box';
 import { drawImage } from '../util';
 
 export default class Player extends Character {
@@ -139,6 +140,8 @@ export default class Player extends Character {
       y = [this.position[1] - 30, this.position[1] + 40];
       x = [this.position[0] - 10, this.position[0] + 80];
     }
+
+    let box = new TestBox(this.game, [x, y]);
     this.game.handleAttack(this, x, y);
   }
 }

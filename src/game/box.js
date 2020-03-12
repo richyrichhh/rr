@@ -21,10 +21,7 @@ export default class TestBox extends Character {
   }
 
   draw(ctx) {
-
-
     var pos = this.position;
     ctx.fillRect(pos[0], pos[1], 25, 25);
-
   }
 }
