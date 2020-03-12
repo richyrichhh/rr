@@ -16,13 +16,13 @@ export default class TestBox extends Character {
       }
     }
 
-    this.game.chars.push(this);
-    setTimeout(() => this.game.chars.splice(this.game.chars.indexOf(this), 1), 528);
+    // this.game.chars.push(this);
+    setTimeout(() => this.game.chars.splice(this.game.chars.indexOf(this), 1), 1056);//528);
   }
 
   draw(ctx) {
     var pos = this.position;
+    ctx.fillRect(pos[0], pos[1], 100, 100);
     ctx.fillStyle = 'orange';
-    ctx.fillRect(pos[0], pos[1], 25, 25);
   }
 }

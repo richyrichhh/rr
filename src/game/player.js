@@ -141,7 +141,7 @@ export default class Player extends Character {
       x = [this.position[0] - 10, this.position[0] + 80];
     }
 
-    let box = new TestBox(this.game, [x, y]);
+    this.game.chars.push(new TestBox(this.game, [x, y]));
     this.game.handleAttack(this, x, y);
   }
 }
