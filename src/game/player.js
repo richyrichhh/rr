@@ -1,5 +1,6 @@
 import Character from './character';
 import TestBox from './box';
+import Explosion from './explosion';
 import { drawImage } from '../util';
 
 export default class Player extends Character {
@@ -30,10 +31,10 @@ export default class Player extends Character {
         }
       },
       death: {
-        frames: 6,
+        frames: 15,
         frameData: {
-          up: ['../src/game/animations/referee/death-0.png', '../src/game/animations/referee/death-1.png', '../src/game/animations/referee/death-2.png', '../src/game/animations/referee/death-3.png', '../src/game/animations/referee/death-4.png', '../src/game/animations/referee/death-5.png'],
-          down: ['../src/game/animations/referee/death-0.png', '../src/game/animations/referee/death-1.png', '../src/game/animations/referee/death-2.png', '../src/game/animations/referee/death-3.png', '../src/game/animations/referee/death-4.png', '../src/game/animations/referee/death-5.png']
+          up: ['../src/game/animations/explosion/tile-0.png', '../src/game/animations/explosion/tile-1.png', '../src/game/animations/explosion/tile-2.png', '../src/game/animations/explosion/tile-3.png', '../src/game/animations/explosion/tile-4.png', '../src/game/animations/explosion/tile-5.png', '../src/game/animations/explosion/tile-6.png', '../src/game/animations/explosion/tile-7.png', '../src/game/animations/explosion/tile-8.png', '../src/game/animations/explosion/tile-9.png', '../src/game/animations/explosion/tile-10.png', '../src/game/animations/explosion/tile-11.png', '../src/game/animations/explosion/tile-12.png', '../src/game/animations/explosion/tile-13.png', '../src/game/animations/explosion/tile-14.png', '../src/game/animations/explosion/tile-15.png'],
+          down: ['../src/game/animations/explosion/tile-0.png', '../src/game/animations/explosion/tile-1.png', '../src/game/animations/explosion/tile-2.png', '../src/game/animations/explosion/tile-3.png', '../src/game/animations/explosion/tile-4.png', '../src/game/animations/explosion/tile-5.png', '../src/game/animations/explosion/tile-6.png', '../src/game/animations/explosion/tile-7.png', '../src/game/animations/explosion/tile-8.png', '../src/game/animations/explosion/tile-9.png', '../src/game/animations/explosion/tile-10.png', '../src/game/animations/explosion/tile-11.png', '../src/game/animations/explosion/tile-12.png', '../src/game/animations/explosion/tile-13.png', '../src/game/animations/explosion/tile-14.png', '../src/game/animations/explosion/tile-15.png']
         }
       }
     }
@@ -141,7 +142,7 @@ export default class Player extends Character {
       x = [this.position[0] - 10, this.position[0] + 80];
     }
 
-    this.game.chars.push(new TestBox(this.game, [x, y]));
+    this.game.chars.push(new Explosion(this.game, [x, y]));
     this.game.handleAttack(this, x, y);
   }
 }
