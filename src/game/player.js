@@ -142,7 +142,7 @@ export default class Player extends Character {
       x = [this.position[0] - 10, this.position[0] + 80];
     }
 
-    this.game.chars.push(new Explosion(this.game, [x, y]));
+    this.game.chars.push(new Explosion(this.game, [(x[0] + x[1])/2, (y[0] + y[1])/2]));
     this.game.handleAttack(this, x, y);
   }
 }
