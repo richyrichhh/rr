@@ -24,10 +24,20 @@ export default class Explosion extends Character {
     }
 
     this.frame = 0;
-    this.frameLength = 16;
-    this.frameTime = 0;
+    this.frameLength = 100;
+    this.frameTime = 100;
 
     // this.game.chars.push(this);
     this.die();
+  }
+
+  die() {
+    if (this.state !== 'death') {
+      this.state = 'death';
+      this.frame = 0;
+      this.frameLength = 1;
+      this.frameTime = 1;
+      setTimeout(() => this.game.chars.splice(this.game.chars.indexOf(this), 1), 1000);
+    }
   }
 }

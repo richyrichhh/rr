@@ -11,7 +11,7 @@ export default class Character {
     this.game = game,
     this.upgrades = [];
     this.state;
-    this.lastDir = '';
+    this.lastDir = 'up';
     this.lastDirLR = 'left';
     this.lastDirUD = 'up';
     this.frame;

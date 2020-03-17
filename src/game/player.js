@@ -58,27 +58,32 @@ export default class Player extends Character {
     // img.onload = function() {
     //   drawImage(ctx, img, pos[0], pos[1], 84, 75, 0, (lastDirLR === 'left' ? true : false), false);
     // }
-    if (this.state === 'stand') {
-      img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
-      drawImage(ctx, img, pos[0], pos[1], 100, 140, 0, ((lastDirUD === 'down' && lastDirLR === 'left') || (lastDirUD === 'up' && lastDirLR === 'right') ? true : false), false);
+    switch(this.state) {
+      case 'stand':
+        img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
+        drawImage(ctx, img, pos[0], pos[1], 100, 140, 0, ((lastDirUD === 'down' && lastDirLR === 'left') || (lastDirUD === 'up' && lastDirLR === 'right') ? true : false), false);
+        break;
+      case 'move':
+        img.src = this.animations[this.state].frameData[this.lastDir][this.frame];
+        ctx.drawImage(img, pos[0], pos[1]);
+        break;
+      case 'attack':
+        img.src = this.animations[this.state].frameData[this.lastDir][this.frame];
+        ctx.drawImage(img, pos[0], pos[1]);
+        break;
+      default:
+        img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
+        drawImage(ctx, img, pos[0], pos[1], 84, 75, 0, (lastDirLR === 'left' ? true : false), false);
+        break;
     }
-    else if (this.state === 'move') {
-      img.src = this.animations[this.state].frameData[this.lastDir][this.frame];
-      ctx.drawImage(img, pos[0], pos[1]);
-    }
-    else {
-      img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
-      drawImage(ctx, img, pos[0], pos[1], 84, 75, 0, (lastDirLR === 'left' ? true : false), false);
-    }
-    
   }
 
   die() {
     if (this.state !== 'death') {
       this.state = 'death';
       this.frame = 0;
-      this.frameLength = 8;
-      this.frameTime = 8;
+      this.frameLength = 1;
+      this.frameTime = 1;
       setTimeout(() => this.game.gameOver(), 3000);
     }
   }
