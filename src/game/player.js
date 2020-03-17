@@ -73,7 +73,7 @@ export default class Player extends Character {
         break;
       default:
         img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
-        drawImage(ctx, img, pos[0], pos[1], 84, 75, 0, (lastDirLR === 'left' ? true : false), false);
+        drawImage(ctx, img, pos[0], pos[1], 150, 150, 0, (lastDirLR === 'left' ? true : false), false);
         break;
     }
   }
