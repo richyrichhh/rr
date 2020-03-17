@@ -24,10 +24,12 @@ export default class Player extends Character {
         }
       },
       attack: {
-        frames: 2,
+        frames: 3,
         frameData: {
-          up: ['../src/game/animations/referee/attack-0.png', '../src/game/animations/referee/attack-1.png'],
-          down: ['../src/game/animations/referee/attack-0.png', '../src/game/animations/referee/attack-1.png']
+          up: ['../src/game/animations/barkley/attack-up-0.png', '../src/game/animations/barkley/attack-up-1.png', '../src/game/animations/barkley/attack-up-2.png'],
+          down: ['../src/game/animations/barkley/attack-down-0.png', '../src/game/animations/barkley/attack-down-1.png', '../src/game/animations/barkley/attack-down-2.png'],
+          right: ['../src/game/animations/barkley/attack-right-0.png', '../src/game/animations/barkley/attack-right-1.png', '../src/game/animations/barkley/attack-right-2.png'],
+          left: ['../src/game/animations/barkley/attack-left-0.png', '../src/game/animations/barkley/attack-left-1.png', '../src/game/animations/barkley/attack-left-2.png']
         }
       },
       death: {
