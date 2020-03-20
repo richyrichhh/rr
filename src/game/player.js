@@ -121,37 +121,6 @@ export default class Player extends Character {
         this.lastDir = 'right';
         break;
     }
-    // if (dir === 'up') {
-    //   if (this.position[1] - 20 < 0) {
-    //     this.movement[1] = this.position[1];
-    //   } else this.movement[1] -= 20;
-    //   this.lastDirUD = 'up';
-    //   this.lastDir = 'up';
-    // }
-    // else if (dir === 'down') {
-    //   if (this.position[1] + 20 > this.game.dimensions['height']) {
-    //     this.movement[1] = this.game.dimensions['height'] - this.position[1];
-    //   } else this.movement[1] += 20;
-    //   this.lastDirUD = 'down';
-    //   this.lastDir = 'down';
-    // }
-    // else if (dir === 'left') {
-    //   if (this.position[0] - 20 < 0) {
-    //     this.movement[0] = this.position[0];
-    //   } else this.movement[0] -= 20;
-    //   this.lastDirLR = 'left';
-    //   this.lastDir = 'left';
-    // }
-    // else if (dir === 'right') {
-    //   if (this.position[0] + 20 > this.game.dimensions['width']) {
-    //     this.movement[0] = this.game.dimensions['width'] - this.position[0];
-    //   } else this.movement[0] += 20;
-    //   this.lastDirLR = 'right';
-    //   this.lastDir = 'right';
-    // }
-
-    // this.resetAnimation = this.resetAnimation.bind(this);
-    // debounce(() => this.resetAnimation(), 1000);
   }
 
   attack() {
