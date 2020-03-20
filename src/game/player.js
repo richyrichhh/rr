@@ -172,10 +172,11 @@ export default class Player extends Character {
     this.frameLength = 4;
     this.frameTime = 4;
     this.frame = 0;
-    let x = [this.position[0] - 100, this.position[0] + 100];
-    let y = [this.position[1] - 100, this.position[1] + 100];
+    this.movement = [0, 0];
+    let x = [this.position[0] - 100, this.position[0] + 220];
+    let y = [this.position[1] - 100, this.position[1] + 240];
 
-    this.game.chars.push(new Explosion(this.game, [(x[0] + x[1])/2, (y[0] + y[1])/2]));
+    this.game.chars.push(new BigExplosion(this.game, [(x[0] + x[1])/2 - 150, (y[0] + y[1])/2 - 150]));
     this.game.handleAttack(this, x, y);
   }
 }
