@@ -162,22 +162,40 @@ export default class Player extends Character {
     this.frame = 0;
     let x;
     let y;
-    if (this.lastDir === 'up') {
-      x = [this.position[0] - 20, this.position[0] + 30];
-      y = [this.position[1] - 65, this.position[1] + 20];
+    switch (this.lastDir) {
+      case 'up':
+        x = [this.position[0] - 20, this.position[0] + 30];
+        y = [this.position[1] - 65, this.position[1] + 20];
+        break;
+      case 'down':
+        x = [this.position[0] - 20, this.position[0] + 30];
+        y = [this.position[1] - 10, this.position[1] + 75];
+        break;
+      case 'left':
+        y = [this.position[1] - 30, this.position[1] + 40];
+        x = [this.position[0] - 70, this.position[0] + 20];
+        break;
+      case 'right':
+        y = [this.position[1] - 30, this.position[1] + 40];
+        x = [this.position[0] - 10, this.position[0] + 80];
+        break;
     }
-    else if (this.lastDir === 'down') {
-      x = [this.position[0] - 20, this.position[0] + 30];
-      y = [this.position[1] - 10, this.position[1] + 75];
-    }
-    else if (this.lastDir === 'left') {
-      y = [this.position[1] - 30, this.position[1] + 40];
-      x = [this.position[0] - 70, this.position[0] + 20];
-    }
-    else if (this.lastDir === 'right') {
-      y = [this.position[1] - 30, this.position[1] + 40];
-      x = [this.position[0] - 10, this.position[0] + 80];
-    }
+    // if (this.lastDir === 'up') {
+    //   x = [this.position[0] - 20, this.position[0] + 30];
+    //   y = [this.position[1] - 65, this.position[1] + 20];
+    // }
+    // else if (this.lastDir === 'down') {
+    //   x = [this.position[0] - 20, this.position[0] + 30];
+    //   y = [this.position[1] - 10, this.position[1] + 75];
+    // }
+    // else if (this.lastDir === 'left') {
+    //   y = [this.position[1] - 30, this.position[1] + 40];
+    //   x = [this.position[0] - 70, this.position[0] + 20];
+    // }
+    // else if (this.lastDir === 'right') {
+    //   y = [this.position[1] - 30, this.position[1] + 40];
+    //   x = [this.position[0] - 10, this.position[0] + 80];
+    // }
 
     this.game.chars.push(new Explosion(this.game, [(x[0] + x[1])/2, (y[0] + y[1])/2]));
     this.game.handleAttack(this, x, y);
