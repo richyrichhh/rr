@@ -157,4 +157,17 @@ export default class Player extends Character {
     this.game.chars.push(new Explosion(this.game, [(x[0] + x[1])/2, (y[0] + y[1])/2]));
     this.game.handleAttack(this, x, y);
   }
+
+  dunk() {
+    if (this.state === 'death') return null;
+    this.state = 'dunk';
+    this.frameLength = 8;
+    this.frameTime = 8;
+    this.frame = 0;
+    let x = [this.position[0] - 100, this.position[0] + 120 + 100];
+    let y = [this.position[1] - 100, this.position[1] + 140 + 100];
+
+    this.game.chars.push(new Explosion(this.game, [(x[0] + x[1])/2, (y[0] + y[1])/2]));
+    this.game.handleAttack(this, x, y);
+  }
 }
