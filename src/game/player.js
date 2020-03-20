@@ -71,6 +71,10 @@ export default class Player extends Character {
         img.src = this.animations[this.state].frameData[this.lastDir][this.frame];
         ctx.drawImage(img, pos[0], pos[1]);
         break;
+      case 'dunk':
+        img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
+        drawImage(ctx, img, pos[0], pos[1], 120, 165, 0, (lastDirLR === 'left' ? true : false), false);
+        break;
       default:
         img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
         drawImage(ctx, img, pos[0], pos[1], 150, 150, 0, (lastDirLR === 'left' ? true : false), false);
