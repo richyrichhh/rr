@@ -32,6 +32,13 @@ export default class Player extends Character {
           left: ['../src/game/animations/barkley/attack-left-0.png', '../src/game/animations/barkley/attack-left-1.png', '../src/game/animations/barkley/attack-left-2.png']
         }
       },
+      dunk: {
+        frames: 9,
+        frameData: {
+          up: ['../src/game/animations/barkley/dunk-0.png', '../src/game/animations/barkley/dunk-1.png', '../src/game/animations/barkley/dunk-2.png', '../src/game/animations/barkley/dunk-3.png', '../src/game/animations/barkley/dunk-4.png', '../src/game/animations/barkley/dunk-5.png', '../src/game/animations/barkley/dunk-6.png', '../src/game/animations/barkley/dunk-7.png', '../src/game/animations/barkley/dunk-8.png'],
+          down: ['../src/game/animations/barkley/dunk-0.png', '../src/game/animations/barkley/dunk-1.png', '../src/game/animations/barkley/dunk-2.png', '../src/game/animations/barkley/dunk-3.png', '../src/game/animations/barkley/dunk-4.png', '../src/game/animations/barkley/dunk-5.png', '../src/game/animations/barkley/dunk-6.png', '../src/game/animations/barkley/dunk-7.png', '../src/game/animations/barkley/dunk-8.png']
+        }
+      },
       death: {
         frames: 15,
         frameData: {
