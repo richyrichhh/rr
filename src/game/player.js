@@ -1,6 +1,7 @@
 import Character from './character';
 import TestBox from './box';
 import Explosion from './explosion';
+import BigExplosion from './bigexplosion';
 import { drawImage } from '../util';
 
 export default class Player extends Character {
@@ -80,7 +81,7 @@ export default class Player extends Character {
         break;
       case 'dunk':
         img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
-        drawImage(ctx, img, pos[0], pos[1], 120, 175, 0, (lastDirLR === 'left' ? true : false), false);
+        drawImage(ctx, img, pos[0], pos[1] - 20, 120, 175, 0, (lastDirLR === 'left' ? true : false), false);
         break;
       default:
         img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
@@ -168,11 +169,11 @@ export default class Player extends Character {
   dunk() {
     if (this.state === 'death') return null;
     this.state = 'dunk';
-    this.frameLength = 8;
-    this.frameTime = 8;
+    this.frameLength = 4;
+    this.frameTime = 4;
     this.frame = 0;
-    let x = [this.position[0] - 100, this.position[0] + 120 + 100];
-    let y = [this.position[1] - 100, this.position[1] + 140 + 100];
+    let x = [this.position[0] - 100, this.position[0] + 100];
+    let y = [this.position[1] - 100, this.position[1] + 100];
 
     this.game.chars.push(new Explosion(this.game, [(x[0] + x[1])/2, (y[0] + y[1])/2]));
     this.game.handleAttack(this, x, y);

@@ -75,7 +75,7 @@ export default class Game {
       else {
         char.frameTime = char.frameLength;
         if (char.frame + 1 >= char.animations[char.state].frames) {
-          if (char.state === 'attack') char.resetAnimation();
+          if (char.state === 'attack' || 'dunk') char.resetAnimation();
           if (char.state === 'death') this.chars.splice(this.chars.indexOf(char), 1)
           char.frame = 0;
         }

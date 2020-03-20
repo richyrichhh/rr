@@ -22,7 +22,7 @@ const moveUp = _.throttle(() => game.player.move('up'), 164);
 const attack = _.throttle(() => game.player.attack(), 1000);
 const dunk = _.throttle(() => game.player.dunk(), 2500);
 // let view = new GameView(game, canvas.getContext("2d"));
-let gameStart = () => {
+export const gameStart = () => {
   game.start();
   clearInterval(game.menu.renderInt);
   game.menu = null;

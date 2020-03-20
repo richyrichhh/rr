@@ -1,4 +1,4 @@
-
+// import {gameStart} from '../index';
 
 export default class startMenu {
   constructor(game, ctx) {
@@ -25,7 +25,7 @@ export default class startMenu {
       this.ctx.fillText(`Movement : ↑↓←→`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 155, 500);
       this.ctx.fillText(`Attack : A`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 180, 500);
       this.ctx.fillText(`Press any key to start`, this.game.canvas.width / 2 + 100, this.game.canvas.height / 2 + 155, 500);
-      document.addEventListener('keydown', gameStart);
+      // document.addEventListener('keydown', gameStart);
 
     }
     bg.src = '../src/game/animations/white.jpg';
