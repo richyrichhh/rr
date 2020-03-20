@@ -42,3 +42,6 @@ Smooth animations
 Upgrades
 
 More player characters/upgrades?
+
+
+This app is not affiliated with Charles Barkley in any way.
