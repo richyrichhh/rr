@@ -119,5 +119,6 @@ export default class Game {
     clearInterval(this.interval);
     this.over = true;
     alert(`Game Over! Your score is ${this.kills}!`);
+    location.reload();
   }
 }
