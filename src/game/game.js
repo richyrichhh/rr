@@ -15,6 +15,7 @@ export default class Game {
     this.interval;
     this.kills = 0;
     this.baseEnemies = 1;
+    this.over = false;
     this.menu = new StartMenu(this, this.ctx);
   }
 
@@ -63,6 +64,7 @@ export default class Game {
     this.animate();
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.draw();
+    if (this.over === true) return;
     setTimeout(() => requestAnimationFrame(this.step.bind(this)), 33);
     // requestAnimationFrame(this.step.bind(this));
 
@@ -115,6 +117,7 @@ export default class Game {
 
   gameOver() {
     clearInterval(this.interval);
-    alert(`${this.kills} kills!`);
+    this.over = true;
+    alert(`Game Over! Your score is ${this.kills}!`);
   }
 }

@@ -96,7 +96,7 @@ export default class Player extends Character {
       this.frame = 0;
       this.frameLength = 1;
       this.frameTime = 1;
-      setTimeout(() => this.game.gameOver(), 3000);
+      setTimeout(() => this.game.gameOver(), 1000);
     }
   }
 

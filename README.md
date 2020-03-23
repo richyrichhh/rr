@@ -8,7 +8,7 @@ Users will be able to:
 +	 Move around a stage
 +  Attack with animations
 +	 Be attacked by enemies with animations
-+	 Block attacks by holding a button
++  Use special moves
 +	 Achieve a score
 
 ## Wireframes
