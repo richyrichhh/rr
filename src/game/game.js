@@ -15,6 +15,7 @@ export default class Game {
     this.interval;
     this.kills = 0;
     this.baseEnemies = 1;
+    this.specialMeter = 5;
     this.over = false;
     this.menu = new StartMenu(this, this.ctx);
   }
@@ -58,6 +59,7 @@ export default class Game {
       x.draw(this.ctx);
     }
     this.ctx.fillText(this.kills, 25, 35);
+    this.ctx.fillRect(this.canvas.width - 210, this.canvas.height - 25, 200 * (this.specialMeter / 10), 20);
   }
 
   step() {
