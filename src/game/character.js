@@ -33,6 +33,7 @@ export default class Character {
       this.resetAnimation();
     }
   }
+  
   handleMovement() {
     this.handleReset();
     if (this.movement[0] > 0) {

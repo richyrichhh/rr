@@ -107,28 +107,28 @@ export default class Player extends Character {
       case 'up':
         if (this.position[1] - 24 < 0) {
           this.movement[1] = this.position[1];
-        } else this.movement[1] -= 24;
+        } else this.movement[1] = -24;
         this.lastDirUD = 'up';
         this.lastDir = 'up';
         break;
       case 'down':
         if (this.position[1] + 24 > this.game.dimensions['height']) {
           this.movement[1] = this.game.dimensions['height'] - this.position[1];
-        } else this.movement[1] += 24;
+        } else this.movement[1] = 24;
         this.lastDirUD = 'down';
         this.lastDir = 'down';
         break;
       case 'left':
         if (this.position[0] - 24 < 0) {
           this.movement[0] = this.position[0];
-        } else this.movement[0] -= 24;
+        } else this.movement[0] = -24;
         this.lastDirLR = 'left';
         this.lastDir = 'left';
         break;
       case 'right':
         if (this.position[0] + 24 > this.game.dimensions['width']) {
           this.movement[0] = this.game.dimensions['width'] - this.position[0];
-        } else this.movement[0] += 24;
+        } else this.movement[0] = 24;
         this.lastDirLR = 'right';
         this.lastDir = 'right';
         break;
