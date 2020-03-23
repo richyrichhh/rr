@@ -49,7 +49,10 @@ export default class Game {
       // console.dir(char);
       // console.log(typeof unit);
       if (char.__proto__.constructor.name !== unit.__proto__.constructor.name) {
-        if (between(char.position[0], x[0], x[1]) && between(char.position[1], y[0], y[1])) char.die();
+        if (between(char.position[0], x[0], x[1]) && between(char.position[1], y[0], y[1])) {
+          if (char instanceof Enemy) this.specialMeter += 1;
+          char.die();
+        }
       }
     }
   }
