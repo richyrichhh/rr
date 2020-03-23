@@ -167,7 +167,8 @@ export default class Player extends Character {
   }
 
   dunk() {
-    if (this.state === 'death') return null;
+    if (this.state === 'death' || this.game.specialMeter < 5) return null;
+    this.game.specialMeter -= 5;
     this.state = 'dunk';
     this.frameLength = 2;
     this.frameTime = 2;
