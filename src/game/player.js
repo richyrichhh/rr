@@ -105,30 +105,30 @@ export default class Player extends Character {
     this.frameLength = 3;
     switch (dir) {
       case 'up':
-        if (this.position[1] - 20 < 0) {
+        if (this.position[1] - 24 < 0) {
           this.movement[1] = this.position[1];
-        } else this.movement[1] -= 20;
+        } else this.movement[1] -= 24;
         this.lastDirUD = 'up';
         this.lastDir = 'up';
         break;
       case 'down':
-        if (this.position[1] + 20 > this.game.dimensions['height']) {
+        if (this.position[1] + 24 > this.game.dimensions['height']) {
           this.movement[1] = this.game.dimensions['height'] - this.position[1];
-        } else this.movement[1] += 20;
+        } else this.movement[1] += 24;
         this.lastDirUD = 'down';
         this.lastDir = 'down';
         break;
       case 'left':
-        if (this.position[0] - 20 < 0) {
+        if (this.position[0] - 24 < 0) {
           this.movement[0] = this.position[0];
-        } else this.movement[0] -= 20;
+        } else this.movement[0] -= 24;
         this.lastDirLR = 'left';
         this.lastDir = 'left';
         break;
       case 'right':
-        if (this.position[0] + 20 > this.game.dimensions['width']) {
+        if (this.position[0] + 24 > this.game.dimensions['width']) {
           this.movement[0] = this.game.dimensions['width'] - this.position[0];
-        } else this.movement[0] += 20;
+        } else this.movement[0] += 24;
         this.lastDirLR = 'right';
         this.lastDir = 'right';
         break;
