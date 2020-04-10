@@ -65,15 +65,34 @@ export default class Game {
     this.ctx.fillRect(this.canvas.width - 210, this.canvas.height - 25, 200 * (this.specialMeter / 10), 20);
   }
 
-  step() {
-    this.animate();
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.draw();
-    if (this.over === true) return;
-    setTimeout(() => requestAnimationFrame(this.step.bind(this)), 33);
-    // requestAnimationFrame(this.step.bind(this));
+  // step() {
+  //   this.animate();
+  //   this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  //   this.draw();
+  //   if (this.over === true) return;
+  //   setTimeout(() => requestAnimationFrame(this.step.bind(this)), 33);
+  //   // requestAnimationFrame(this.step.bind(this));
 
-  }
+  // }
+
+  // step() {
+  //   // var canvas = document.getElementById('myCanvas');
+  //   // var context = canvas.getContext('2d');
+
+  //   // update
+  //   this.animate();
+  //   // clear
+  //   this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+  //   // draw stuff
+  //   this.draw();
+  //   this.step = this.step.bind(this);
+  //   // request new frame
+  //   if (this.over === true) return;
+  //   requestAnimFrame(function () {
+  //     this.step();
+  //   });
+  // }
 
   animate() {
     for (var char of this.chars) {
@@ -113,7 +132,7 @@ export default class Game {
   start() {
     this.ctx.font = '30px proxima-nova';
     this.factory();
-    requestAnimationFrame(this.step.bind(this));
+    // requestAnimationFrame(this.step.bind(this));
     // this.interval = setInterval(() => {
     //   window.requestAnimationFrame(this.step());
     // }, 33);
@@ -127,3 +146,5 @@ export default class Game {
     location.reload();
   }
 }
+
+

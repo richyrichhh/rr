@@ -22,7 +22,7 @@ const moveUp = () => game.player.move('up');
 const attack = _.throttle(() => game.player.attack(), 1000, {trailing: false});
 const dunk = _.throttle(() => game.player.dunk(), 2500, {trailing: false});
 // let view = new GameView(game, canvas.getContext("2d"));
-export const gameStart = () => {
+const gameStart = () => {
   game.start();
   clearInterval(game.menu.renderInt);
   game.menu = null;
@@ -51,6 +51,8 @@ export const gameStart = () => {
       dunk();
     };
   });
+
+  step();
 }
 
 
@@ -84,3 +86,28 @@ window.addEventListener('load', () => {
 }, false);
 
 setTimeout(() => document.addEventListener('keydown', gameStart), 2000);
+
+window.requestAnimFrame = (function (callback) {
+  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+    function (callback) {
+      window.setTimeout(callback, 1000 / 60);
+    };
+})();
+
+const step = () => {
+  // var canvas = document.getElementById('myCanvas');
+  // var context = canvas.getContext('2d');
+
+  // update
+  game.animate();
+  // clear
+  game.ctx.clearRect(0, 0, game.canvas.width, game.canvas.height);
+
+  // draw stuff
+  game.draw();
+  // request new frame
+  if (game.over === true) return;
+  requestAnimFrame(function () {
+    step();
+  });
+}
