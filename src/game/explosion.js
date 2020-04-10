@@ -35,8 +35,8 @@ export default class Explosion extends Character {
     if (this.state !== 'death') {
       this.state = 'death';
       this.frame = 0;
-      this.frameLength = 2;
-      this.frameTime = 2;
+      this.frameLength = 3;
+      this.frameTime = 3;
       setTimeout(() => this.game.chars.splice(this.game.chars.indexOf(this), 1), 1000);
     }
   }
