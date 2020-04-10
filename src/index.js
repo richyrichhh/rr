@@ -90,7 +90,7 @@ setTimeout(() => document.addEventListener('keydown', gameStart), 2000);
 window.requestAnimFrame = (function (callback) {
   return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
     function (callback) {
-      window.setTimeout(callback, 1000 / 120);
+      window.setTimeout(callback, 66);
     };
 })();
 

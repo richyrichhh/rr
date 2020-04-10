@@ -37,36 +37,36 @@ export default class Character {
   handleMovement() {
     this.handleReset();
     if (this.movement[0] > 0) {
-      if (this.movement[0] >= 6) {
-        this.position[0] += 6;
-        this.movement[0] -= 6;
+      if (this.movement[0] >= 4) {
+        this.position[0] += 4;
+        this.movement[0] -= 4;
       } else {
         this.position[0] -= this.movement[0];
         this.movement[0] = 0;
       }
     }
     if (this.movement[0] < 0) {
-      if (this.movement[0] <= -6) {
-        this.position[0] -= 6;
-        this.movement[0] += 6;
+      if (this.movement[0] <= -4) {
+        this.position[0] -= 4;
+        this.movement[0] += 4;
       } else {
         this.position[0] += this.movement[0];
         this.movement[0] = 0;
       }
     }
     if (this.movement[1] > 0) {
-      if (this.movement[1] >= 6) {
-        this.position[1] += 6;
-        this.movement[1] -= 6;
+      if (this.movement[1] >= 4) {
+        this.position[1] += 4;
+        this.movement[1] -= 4;
       } else {
         this.position[1] -= this.movement[1];
         this.movement[1] = 0;
       }
     }
     if (this.movement[1] < 0) {
-      if (this.movement[1] <= -6) {
-        this.position[1] -= 6;
-        this.movement[1] += 6;
+      if (this.movement[1] <= -4) {
+        this.position[1] -= 4;
+        this.movement[1] += 4;
       } else {
         this.position[1] += this.movement[1];
         this.movement[1] = 0;
