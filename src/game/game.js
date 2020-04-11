@@ -47,6 +47,7 @@ export default class Game {
   // }
 
   handleAttack(unit, x, y) {
+    if (unit.state === 'death') return null;
     for (var char of this.chars) {
       // console.dir(char);
       // console.log(typeof unit);
@@ -66,7 +67,7 @@ export default class Game {
 
     this.ctx.drawImage(this.scoreboard, this.canvas.width - 385, this.canvas.height - 103)
     this.ctx.fillStyle = '#ffffff';
-    this.ctx.fillText(this.kills, 25, 35);
+    this.ctx.fillText(this.kills, this.canvas.width - 385 + 116, this.canvas.height - 103 + 36);
     this.ctx.fillRect(this.canvas.width - 377, this.canvas.height - 33, 368 * (this.specialMeter / 10), 30);
   }
 
