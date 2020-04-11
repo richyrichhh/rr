@@ -18,6 +18,8 @@ export default class Game {
     this.specialMeter = 5;
     this.over = false;
     this.menu = new StartMenu(this, this.ctx);
+    this.scoreboard = new Image();
+    this.scoreboard.src = '../src/game/animations/scoreboard.png';
   }
 
   factory() {
@@ -61,6 +63,9 @@ export default class Game {
     for (let x of this.chars) {
       x.draw(this.ctx);
     }
+
+    this.ctx.drawImage(this.scoreboard, this.canvas.width - 385, this.canvas.height - 103)
+    this.ctx.fillStyle = '#ffffff';
     this.ctx.fillText(this.kills, 25, 35);
     this.ctx.fillRect(this.canvas.width - 210, this.canvas.height - 25, 200 * (this.specialMeter / 10), 20);
   }
@@ -130,7 +135,7 @@ export default class Game {
   // }
 
   start() {
-    this.ctx.font = '30px proxima-nova';
+    this.ctx.font = '32px verdana, sans-serif';
     this.factory();
     // requestAnimationFrame(this.step.bind(this));
     // this.interval = setInterval(() => {
