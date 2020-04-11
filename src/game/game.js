@@ -67,7 +67,7 @@ export default class Game {
     this.ctx.drawImage(this.scoreboard, this.canvas.width - 385, this.canvas.height - 103)
     this.ctx.fillStyle = '#ffffff';
     this.ctx.fillText(this.kills, 25, 35);
-    this.ctx.fillRect(this.canvas.width - 210, this.canvas.height - 25, 200 * (this.specialMeter / 10), 20);
+    this.ctx.fillRect(this.canvas.width - 377, this.canvas.height - 33, 368 * (this.specialMeter / 10), 30);
   }
 
   // step() {
