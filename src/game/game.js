@@ -47,7 +47,7 @@ export default class Game {
   // }
 
   handleAttack(unit, x, y) {
-    if (unit.state === 'death') return null;
+    if (unit.state === 'death' || !unit) return null;
     for (var char of this.chars) {
       // console.dir(char);
       // console.log(typeof unit);
