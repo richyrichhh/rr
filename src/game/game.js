@@ -20,6 +20,7 @@ export default class Game {
     this.menu = new StartMenu(this, this.ctx);
     this.scoreboard = new Image();
     this.scoreboard.src = '../src/game/animations/scoreboard-new.png';
+    this.items = [];
   }
 
   factory() {
