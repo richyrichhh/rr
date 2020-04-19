@@ -94,7 +94,7 @@ export default class Game {
     this.ctx.fillStyle = '#222222'
     this.ctx.font = '16px verdana, sans-serif';
     this.ctx.fillText(`LIFE`, this.canvas.width - 186, this.canvas.height - 39, 150);
-    this.ctx.fillText(`SPECIAL`, this.canvas.width - 186, this.canvas.height - 12, 150);
+    this.ctx.fillText(`SPECIAL${this.specialMeter === 10 ? `: PRESS S` : ""}`, this.canvas.width - 186, this.canvas.height - 12, 150);
   }
 
   // step() {
