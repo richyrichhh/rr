@@ -55,3 +55,13 @@ canvas {
   background-size: cover;
   background-position: center;
 }
+
+#preload-animations {
+  display: none;
+}
+
+#preload-animations > img {
+  width: 1px;
+  height: 1px;
+  display: none;
+}
