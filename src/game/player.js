@@ -190,8 +190,8 @@ export default class Player extends Character {
   }
 
   dunk() {
-    if (this.state === 'death' || this.game.specialMeter < 5) return null;
-    this.game.specialMeter -= 5;
+    if (this.state === 'death' || this.game.specialMeter < 10) return null;
+    this.game.specialMeter -= 10;
     this.state = 'dunk';
     this.offset = [120 / 2, 175 / 2];
     this.frameLength = 5;

@@ -90,6 +90,10 @@ export default class Game {
     this.ctx.fillRect(this.canvas.width - 191, this.canvas.height - 33, 182 * (this.specialMeter / 10), 30);
     this.player.life > 2 ? this.ctx.fillStyle = 'rgb(0, 255, 0)' : this.player.life === 2 ? this.ctx.fillStyle = 'rgb(255, 255, 0)' : this.ctx.fillStyle = 'rgb(255, 0, 0)';
     this.ctx.fillRect(this.canvas.width - 191, this.canvas.height - 53, 182 * (this.player.life / 5), 16);
+    this.ctx.fillStyle = '#222222'
+    this.ctx.font = '16px sans serif'
+    this.ctx.fillText(`LIFE`, this.canvas.width - 186, this.canvas.height - 39, 150);
+    this.ctx.fillText(`SPECIAL`, this.canvas.width - 186, this.canvas.height - 12, 150);
   }
 
   // step() {
