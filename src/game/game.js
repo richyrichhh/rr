@@ -26,6 +26,19 @@ export default class Game {
 
   factory() {
     this.createEnemy();
+    if (this.kills > 40) this.createEnemy();
+    if (this.kills > 50) this.createEnemy();
+    if (this.kills > 75) {
+      this.createEnemy();
+      this.createEnemy();
+      this.createEnemy();
+    }
+    if (this.kills > 100) {
+      this.createEnemy();
+      this.createEnemy();
+      this.createEnemy();
+      this.createEnemy();
+    } 
     if (this.player.state !== 'death') setTimeout(() => this.factory(), Math.max(Math.floor(Math.random()*(5000 - (50 * this.kills))), 500));
   }
 

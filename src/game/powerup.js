@@ -11,13 +11,15 @@ export default class Powerup {
   collect() {
     switch (this.type) {
       case 'health':
-        if (this.game.player.health < 5) this.game.player.health += 1;
+        if (this.game.player.life < 5) this.game.player.life += 1;
+        break;
       case 'special':
         if (this.game.specialMeter < 10) this.game.specialMeter = Math.min(10, this.game.specialMeter + 2);
+        break;
       default:
-        this.game.items.splice(this.game.items.indexOf(this), 1);
         break;
     }
+    this.game.items.splice(this.game.items.indexOf(this), 1);
   }
 
   draw(ctx) {

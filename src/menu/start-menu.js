@@ -19,7 +19,7 @@ export default class startMenu {
     bg.onload = () =>  {
       this.ctx.drawImage(bg, 0, 0);
       this.ctx.drawImage(img, Math.floor((this.game.canvas.width / 2) - (485 / 2)), 50, 485, 237);
-      this.ctx.fillText(`The referees are blind and are trying to take over the game!`, this.game.canvas.width / 2 - 240, this.game.canvas.height / 2 + 50, 500);
+      this.ctx.fillText(`The referees are blind! They are trying to hand the Lakers another win!`, this.game.canvas.width / 2 - 240, this.game.canvas.height / 2 + 50, 500);
       this.ctx.fillText(`It's up to Charles Barkley to help them see the light.`, this.game.canvas.width / 2 - 240, this.game.canvas.height / 2 + 80, 500);
       this.ctx.fillText(`Controls:`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 130, 500);
       this.ctx.fillText(`Movement : ↑↓←→`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 155, 500);
