@@ -161,19 +161,19 @@ export default class Player extends Character {
     let y;
     switch (this.lastDir) {
       case 'up':
-        x = [this.centerPos[0] - 25, this.centerPos[0] + 25];
+        x = [this.centerPos[0] - 40, this.centerPos[0] + 40];
         y = [this.centerPos[1] - 80, this.centerPos[1] + 10];
         break;
       case 'down':
-        x = [this.centerPos[0] - 25, this.centerPos[0] + 25];
+        x = [this.centerPos[0] - 40, this.centerPos[0] + 40];
         y = [this.centerPos[1] - 10, this.centerPos[1] + 80];
         break;
       case 'left':
-        y = [this.centerPos[1] - 30, this.centerPos[1] + 30];
+        y = [this.centerPos[1] - 50, this.centerPos[1] + 50];
         x = [this.centerPos[0] - 75, this.centerPos[0] + 5];
         break;
       case 'right':
-        y = [this.centerPos[1] - 30, this.centerPos[1] + 30];
+        y = [this.centerPos[1] - 50, this.centerPos[1] + 50];
         x = [this.centerPos[0] - 5, this.centerPos[0] + 75];
         break;
     }
