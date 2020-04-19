@@ -2,6 +2,7 @@ import Player from './player';
 import Enemy from './enemy';
 import { between } from '../util';
 import StartMenu from '../menu/start-menu';
+import EndMenu from '../menu/end-menu';
 
 export default class Game {
   constructor(canvas) {
@@ -155,8 +156,10 @@ export default class Game {
   gameOver() {
     clearInterval(this.interval);
     this.over = true;
-    alert(`Game Over! Your score is ${this.kills}!`);
-    location.reload();
+    setTimeout(() => {
+      let endscreen = new EndMenu(this, this.ctx);
+      endscreen.render();
+    }, 250);
   }
 }
 
