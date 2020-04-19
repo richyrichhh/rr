@@ -22,5 +22,10 @@ export default class Powerup {
     }
   }
 
-
+  draw(ctx) {
+    var img = new Image();
+    if (this.type === 'health') img.src = "../src/game/animations/powerups/health.png";
+    else if (this.type === 'special') img.src = "../src/game/animations/powerups/special.png";
+    drawImage(ctx, img, pos[0], pos[1], 50, 50, 0, false, false);
+  }
 }

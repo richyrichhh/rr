@@ -66,6 +66,10 @@ export default class Game {
       x.draw(this.ctx);
     }
 
+    for (let y of this.items) {
+      y.draw(this.ctx);
+    }
+
     this.ctx.drawImage(this.scoreboard, this.canvas.width - 199, this.canvas.height - 103)
     this.ctx.fillStyle = '#ffffff';
     this.ctx.fillText(this.kills, this.canvas.width - 199 + 116, this.canvas.height - 103 + 36);
