@@ -50,7 +50,7 @@ export default class Player extends Character {
       }
     }
 
-    this.life = 1;
+    this.life = 5;
     
     this.offset = [100 / 2, 140 / 2];
 

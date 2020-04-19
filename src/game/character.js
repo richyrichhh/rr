@@ -141,19 +141,19 @@ export default class Character {
     let y;
     if (this.lastDir === 'up') {
       x = [this.centerPos[0] - 25, this.centerPos[0] + 25];
-      y = [this.centerPos[1] - 40, this.centerPos[1] + 5];
+      y = [this.centerPos[1] - 50, this.centerPos[1] + 5];
     }
     else if (this.lastDir === 'down') {
       x = [this.centerPos[0] - 25, this.centerPos[0] + 25];
-      y = [this.centerPos[1] - 5, this.centerPos[1] + 40];
+      y = [this.centerPos[1] - 5, this.centerPos[1] + 50];
     }
     else if (this.lastDir === 'left') {
-      y = [this.centerPos[1] - 25, this.centerPos[1] + 25];
-      x = [this.centerPos[0] - 30, this.centerPos[0] + 5];
+      y = [this.centerPos[1] - 30, this.centerPos[1] + 30];
+      x = [this.centerPos[0] - 50, this.centerPos[0] + 5];
     }
     else if (this.lastDir === 'right') {
-      y = [this.centerPos[1] - 25, this.centerPos[1] + 25];
-      x = [this.centerPos[0] - 5, this.centerPos[0] + 30];
+      y = [this.centerPos[1] - 30, this.centerPos[1] + 30];
+      x = [this.centerPos[0] - 5, this.centerPos[0] + 50];
     }
     this.game.handleAttack(this, x, y);
   }
