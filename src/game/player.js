@@ -185,7 +185,7 @@ export default class Player extends Character {
     console.log(this.centerPos);
     console.log('atk coords');
     console.dir([x, y]);
-    this.game.chars.push(new Explosion(this.game, [(x[0] + x[1])/2, (y[0] + y[1])/2]));
+    // this.game.chars.push(new Explosion(this.game, [(x[0] + x[1])/2, (y[0] + y[1])/2]));
     this.game.handleAttack(this, x, y);
   }
 
