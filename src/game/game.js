@@ -25,7 +25,7 @@ export default class Game {
 
   factory() {
     this.createEnemy();
-    if (this.player.state !== 'death') setTimeout(() => this.factory(), Math.floor(Math.random()*5000));
+    if (this.player.state !== 'death') setTimeout(() => this.factory(), Math.max(Math.floor(Math.random()*(5000 - (50 * this.kills))), 500));
   }
 
   randomPosAtEdges() {
@@ -54,7 +54,7 @@ export default class Game {
       // console.log(typeof unit);
       if (char.__proto__.constructor.name !== unit.__proto__.constructor.name) {
         if (between(char.centerPos[0], x[0], x[1]) && between(char.centerPos[1], y[0], y[1])) {
-          if (char instanceof Enemy) this.specialMeter += 1;
+          if (char instanceof Enemy && this.specialMeter < 10) this.specialMeter += 1;
           if (char.state !== 'death') char.die();
         }
       }
