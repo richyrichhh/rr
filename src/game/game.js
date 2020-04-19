@@ -69,6 +69,8 @@ export default class Game {
     this.ctx.fillStyle = '#ffffff';
     this.ctx.fillText(this.kills, this.canvas.width - 199 + 116, this.canvas.height - 103 + 36);
     this.ctx.fillRect(this.canvas.width - 191, this.canvas.height - 33, 182 * (this.specialMeter / 10), 30);
+    this.player.life > 2 ? this.ctx.fillStyle = 'rgb(0, 255, 0)' : this.player.life === 2 ? this.ctx.fillStyle = 'rgb(255, 255, 0)' : this.ctx.fillStyle = 'rgb(255, 0, 0)';
+    this.ctx.fillRect(this.canvas.width - 191, this.canvas.height - 53, 182 * (this.player.life / 5), 16);
   }
 
   // step() {
@@ -108,7 +110,7 @@ export default class Game {
         char.frameTime = char.frameLength;
         if (char.frame + 1 >= char.animations[char.state].frames) {
           if (char.state === 'attack' || 'dunk') char.resetAnimation();
-          if (char.state === 'death') this.chars.splice(this.chars.indexOf(char), 1)
+          // if (char.state === 'death') this.chars.splice(this.chars.indexOf(char), 1)
           char.frame = 0;
         }
         else char.frame += 1;

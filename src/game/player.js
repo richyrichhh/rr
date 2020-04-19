@@ -48,6 +48,8 @@ export default class Player extends Character {
         }
       }
     }
+
+    this.life = 5;
     
     this.offset = [100 / 2, 140 / 2];
 
@@ -97,12 +99,15 @@ export default class Player extends Character {
   }
 
   die() {
-    if (this.state !== 'death') {
-      this.state = 'death';
-      this.frame = 0;
-      this.frameLength = 4;
-      this.frameTime = 4;
-      setTimeout(() => this.game.gameOver(), 1000);
+    this.life -= 1;
+    if (this.life <= 0) {
+      if (this.state !== 'death') {
+        this.state = 'death';
+        this.frame = 0;
+        this.frameLength = 4;
+        this.frameTime = 4;
+        setTimeout(() => this.game.gameOver(), 1000);
+      }
     }
   }
 
