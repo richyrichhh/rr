@@ -1,5 +1,6 @@
 import Character from './character';
 import { distance } from '../util';
+import Powerup from './powerup';
 
 const dirs = ['left', 'down', 'right', 'up'];
 
@@ -62,6 +63,13 @@ export default class Enemy extends Character {
       this.game.kills += 1;
       setTimeout(() => {
         this.game.chars.splice(this.game.chars.indexOf(this), 1)
+        if (Math.random() > 0.9) {
+          if (Math.random() > 0.75) {
+            this.game.items.push(new Powerup(this.game, this.position, 'health'));
+          } else {
+            this.game.items.push(new Powerup(this.game, this.position, 'special'));
+          }
+        }
       }, 750);
     }
   }

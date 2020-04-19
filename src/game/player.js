@@ -2,7 +2,8 @@ import Character from './character';
 import TestBox from './box';
 import Explosion from './explosion';
 import BigExplosion from './bigexplosion';
-import { drawImage } from '../util';
+import { drawImage, between } from '../util';
+
 
 export default class Player extends Character {
   constructor(game) {
@@ -203,5 +204,55 @@ export default class Player extends Character {
 
     this.game.chars.unshift(new BigExplosion(this.game, this.centerPos));
     this.game.handleAttack(this, x, y);
+  }
+
+  handleMovement() {
+    this.handleReset();
+    if (this.movement[0] > 0) {
+      if (this.movement[0] >= 4) {
+        this.position[0] += 4;
+        this.movement[0] -= 4;
+      } else {
+        this.position[0] -= this.movement[0];
+        this.movement[0] = 0;
+      }
+    }
+    if (this.movement[0] < 0) {
+      if (this.movement[0] <= -4) {
+        this.position[0] -= 4;
+        this.movement[0] += 4;
+      } else {
+        this.position[0] += this.movement[0];
+        this.movement[0] = 0;
+      }
+    }
+    if (this.movement[1] > 0) {
+      if (this.movement[1] >= 4) {
+        this.position[1] += 4;
+        this.movement[1] -= 4;
+      } else {
+        this.position[1] -= this.movement[1];
+        this.movement[1] = 0;
+      }
+    }
+    if (this.movement[1] < 0) {
+      if (this.movement[1] <= -4) {
+        this.position[1] -= 4;
+        this.movement[1] += 4;
+      } else {
+        this.position[1] += this.movement[1];
+        this.movement[1] = 0;
+      }
+    }
+    this.updateCenterPos();
+    this.handlePickups();
+  }
+
+  handlePickups() {
+    this.game.items.forEach(item => {
+      if (between(item.centerPos[0], this.centerPos[0] - 50, this.centerPos[0] + 50) && between(item.centerPos[1], this.centerPos[1] - 50, this.centerPos[1] + 50)) {
+        item.collect();
+      }
+    })
   }
 }
