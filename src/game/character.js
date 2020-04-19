@@ -164,7 +164,7 @@ export default class Character {
       this.frame = 0;
       this.frameLength = 8;
       this.frameTime = 8;
-      setTimeout(() => this.game.chars.splice(this.game.chars.indexOf(this), 1), 1000);
+      setTimeout(() => this.game.chars.splice(this.game.chars.indexOf(this), 1), 500);
     }
   }
 }

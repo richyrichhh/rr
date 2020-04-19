@@ -62,7 +62,7 @@ export default class Enemy extends Character {
       this.game.kills += 1;
       setTimeout(() => {
         this.game.chars.splice(this.game.chars.indexOf(this), 1)
-      }, 1000);
+      }, 750);
     }
   }
 }
