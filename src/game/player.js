@@ -49,12 +49,18 @@ export default class Player extends Character {
       }
     }
     
+    this.offset = [100 / 2, 140 / 2];
+
+    this.centerPos = [this.position[0] + (this.offset[0]) + this.position[1] + (this.offset[1])];
+    
   }
 
   resetAnimation() {
     this.state = 'stand';
     this.frame = 0;
     this.frameLength = 3;
+    this.offset = [100/2, 140/2];
+    this.updateCenterPos();
   }
 
   draw(ctx) {
@@ -102,33 +108,35 @@ export default class Player extends Character {
 
   move(dir) {
     this.state = 'move';
+    this.offset = [120 / 2, 140 / 2];
     this.frameLength = 3;
+    this.updateCenterPos();
     switch (dir) {
       case 'up':
-        if (this.position[1] - 24 < 0) {
+        if (this.position[1] - 48 < 0) {
           this.movement[1] = this.position[1];
-        } else this.movement[1] = -24;
+        } else this.movement[1] = -48;
         this.lastDirUD = 'up';
         this.lastDir = 'up';
         break;
       case 'down':
-        if (this.position[1] + 24 > this.game.dimensions['height']) {
+        if (this.position[1] + 48 > this.game.dimensions['height']) {
           this.movement[1] = this.game.dimensions['height'] - this.position[1];
-        } else this.movement[1] = 24;
+        } else this.movement[1] = 48;
         this.lastDirUD = 'down';
         this.lastDir = 'down';
         break;
       case 'left':
-        if (this.position[0] - 24 < 0) {
+        if (this.position[0] - 48 < 0) {
           this.movement[0] = this.position[0];
-        } else this.movement[0] = -24;
+        } else this.movement[0] = -48;
         this.lastDirLR = 'left';
         this.lastDir = 'left';
         break;
       case 'right':
-        if (this.position[0] + 24 > this.game.dimensions['width']) {
+        if (this.position[0] + 48 > this.game.dimensions['width']) {
           this.movement[0] = this.game.dimensions['width'] - this.position[0];
-        } else this.movement[0] = 24;
+        } else this.movement[0] = 48;
         this.lastDirLR = 'right';
         this.lastDir = 'right';
         break;
@@ -138,30 +146,39 @@ export default class Player extends Character {
   attack() {
     if (this.state === 'death') return null;
     this.state = 'attack';
+    this.offset = [120 / 2, 140 / 2];
     this.frameLength = 8;
     this.frameTime = 8;
     this.frame = 0;
+    this.updateCenterPos();
+    
     let x;
     let y;
     switch (this.lastDir) {
       case 'up':
-        x = [this.position[0] - 20, this.position[0] + 30];
-        y = [this.position[1] - 65, this.position[1] + 20];
+        x = [this.centerPos[0] - 25, this.centerPos[0] + 25];
+        y = [this.centerPos[1] - 80, this.centerPos[1] + 10];
         break;
       case 'down':
-        x = [this.position[0] - 20, this.position[0] + 30];
-        y = [this.position[1] - 10, this.position[1] + 75];
+        x = [this.centerPos[0] - 25, this.centerPos[0] + 25];
+        y = [this.centerPos[1] - 10, this.centerPos[1] + 80];
         break;
       case 'left':
-        y = [this.position[1] - 30, this.position[1] + 40];
-        x = [this.position[0] - 70, this.position[0] + 20];
+        y = [this.centerPos[1] - 30, this.centerPos[1] + 30];
+        x = [this.centerPos[0] - 75, this.centerPos[0] + 5];
         break;
       case 'right':
-        y = [this.position[1] - 30, this.position[1] + 40];
-        x = [this.position[0] - 10, this.position[0] + 80];
+        y = [this.centerPos[1] - 30, this.centerPos[1] + 30];
+        x = [this.centerPos[0] - 5, this.centerPos[0] + 75];
         break;
     }
 
+    console.log('pos')
+    console.log(this.position);
+    console.log('center')
+    console.log(this.centerPos);
+    console.log('atk coords');
+    console.dir([x, y]);
     this.game.chars.push(new Explosion(this.game, [(x[0] + x[1])/2, (y[0] + y[1])/2]));
     this.game.handleAttack(this, x, y);
   }
@@ -170,14 +187,16 @@ export default class Player extends Character {
     if (this.state === 'death' || this.game.specialMeter < 5) return null;
     this.game.specialMeter -= 5;
     this.state = 'dunk';
+    this.offset = [120 / 2, 175 / 2];
     this.frameLength = 5;
     this.frameTime = 5;
     this.frame = 0;
+    this.updateCenterPos();
     this.movement = [0, 0];
-    let x = [this.position[0] - 100, this.position[0] + 220];
-    let y = [this.position[1] - 100, this.position[1] + 240];
+    let x = [this.centerPos[0] - 150, this.centerPos[0] + 150];
+    let y = [this.centerPos[1] - 150, this.centerPos[1] + 150];
 
-    this.game.chars.unshift(new BigExplosion(this.game, [(x[0] + x[1])/2 - 150, (y[0] + y[1])/2 - 150]));
+    this.game.chars.unshift(new BigExplosion(this.game, this.centerPos));
     this.game.handleAttack(this, x, y);
   }
 }

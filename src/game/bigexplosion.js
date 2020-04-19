@@ -3,7 +3,7 @@ import { drawImage } from '../util';
 
 export default class BigExplosion extends Explosion {
   constructor(game, pos) {
-    super(game, pos);
+    super(game, [pos[0] - 100, pos[1] - 100]);
   }
 
   draw(ctx) {

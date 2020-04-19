@@ -3,7 +3,7 @@ import { drawImage } from '../util';
 
 export default class Explosion extends Character {
   constructor(game, pos) {
-    super(game, pos);
+    super(game, [pos[0] - (84/2), pos[1] - (75/2)]);
     this.state = 'stand';
     
     this.animations = {
@@ -37,7 +37,6 @@ export default class Explosion extends Character {
       this.frame = 0;
       this.frameLength = 3;
       this.frameTime = 3;
-      setTimeout(() => this.game.chars.splice(this.game.chars.indexOf(this), 1), 1000);
     }
   }
 }

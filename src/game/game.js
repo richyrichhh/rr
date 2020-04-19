@@ -19,7 +19,7 @@ export default class Game {
     this.over = false;
     this.menu = new StartMenu(this, this.ctx);
     this.scoreboard = new Image();
-    this.scoreboard.src = '../src/game/animations/scoreboard.png';
+    this.scoreboard.src = '../src/game/animations/scoreboard-new.png';
   }
 
   factory() {
@@ -52,9 +52,9 @@ export default class Game {
       // console.dir(char);
       // console.log(typeof unit);
       if (char.__proto__.constructor.name !== unit.__proto__.constructor.name) {
-        if (between(char.position[0], x[0], x[1]) && between(char.position[1], y[0], y[1])) {
+        if (between(char.centerPos[0], x[0], x[1]) && between(char.centerPos[1], y[0], y[1])) {
           if (char instanceof Enemy) this.specialMeter += 1;
-          char.die();
+          if (char.state !== 'death') char.die();
         }
       }
     }
@@ -65,10 +65,10 @@ export default class Game {
       x.draw(this.ctx);
     }
 
-    this.ctx.drawImage(this.scoreboard, this.canvas.width - 385, this.canvas.height - 103)
+    this.ctx.drawImage(this.scoreboard, this.canvas.width - 199, this.canvas.height - 103)
     this.ctx.fillStyle = '#ffffff';
-    this.ctx.fillText(this.kills, this.canvas.width - 385 + 116, this.canvas.height - 103 + 36);
-    this.ctx.fillRect(this.canvas.width - 377, this.canvas.height - 33, 368 * (this.specialMeter / 10), 30);
+    this.ctx.fillText(this.kills, this.canvas.width - 199 + 116, this.canvas.height - 103 + 36);
+    this.ctx.fillRect(this.canvas.width - 191, this.canvas.height - 33, 182 * (this.specialMeter / 10), 30);
   }
 
   // step() {

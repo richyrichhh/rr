@@ -17,6 +17,8 @@ export default class Character {
     this.frame;
     this.frameLength;
     this.frameTime = this.frameLength;
+    this.offset = [84 / 2, 75 / 2];
+    this.centerPos = [this.position[0] + this.offset[0], this.position[1] + this.offset[1]];
     
     this.resetAnimation();
     // this.resetAnimation = this.resetAnimation.bind(this);
@@ -26,6 +28,10 @@ export default class Character {
     this.state = 'stand';
     this.frame = 0;
     this.frameLength = 80;
+  }
+
+  updateCenterPos() {
+    this.centerPos = [this.position[0] + this.offset[0], this.position[1] + this.offset[1]];
   }
 
   handleReset() {
@@ -72,7 +78,7 @@ export default class Character {
         this.movement[1] = 0;
       }
     }
-
+    this.updateCenterPos();
   }
 
   draw(ctx) {
@@ -90,6 +96,7 @@ export default class Character {
   move(dir) {
     this.state = 'move';
     this.frameLength = 8;
+    this.updateCenterPos();
     if (dir === 'up') {
       if (this.position[1] - 20 < 0) {
         this.movement[1] = this.position[1];
@@ -129,23 +136,24 @@ export default class Character {
     this.frameLength = 8;
     this.frameTime = 8;
     this.frame = 0;
+    this.updateCenterPos();
     let x;
     let y;
     if (this.lastDir === 'up') {
-      x = [this.position[0] - 10, this.position[0] + 20];
-      y = [this.position[1] - 50, this.position[1] + 20];
+      x = [this.centerPos[0] - 25, this.centerPos[0] + 25];
+      y = [this.centerPos[1] - 40, this.centerPos[1] + 5];
     }
     else if (this.lastDir === 'down') {
-      x = [this.position[0] - 10, this.position[0] + 20];
-      y = [this.position[1] - 10, this.position[1] + 60];
+      x = [this.centerPos[0] - 25, this.centerPos[0] + 25];
+      y = [this.centerPos[1] - 5, this.centerPos[1] + 40];
     }
     else if (this.lastDir === 'left') {
-      y = [this.position[1] - 20, this.position[1] + 30];
-      x = [this.position[0] - 50, this.position[0] + 20];
+      y = [this.centerPos[1] - 25, this.centerPos[1] + 25];
+      x = [this.centerPos[0] - 30, this.centerPos[0] + 5];
     }
     else if (this.lastDir === 'right') {
-      y = [this.position[1] - 20, this.position[1] + 30];
-      x = [this.position[0] - 10, this.position[0] + 60];
+      y = [this.centerPos[1] - 25, this.centerPos[1] + 25];
+      x = [this.centerPos[0] - 5, this.centerPos[0] + 30];
     }
     this.game.handleAttack(this, x, y);
   }
