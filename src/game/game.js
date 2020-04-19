@@ -26,14 +26,14 @@ export default class Game {
 
   factory() {
     this.createEnemy();
-    if (this.kills > 40) this.createEnemy();
-    if (this.kills > 50) this.createEnemy();
-    if (this.kills > 75) {
-      this.createEnemy();
+    if (this.kills > 5) this.createEnemy();
+    if (this.kills > 10) this.createEnemy();
+    if (this.kills > 20) this.createEnemy();
+    if (this.kills > 30) {
       this.createEnemy();
       this.createEnemy();
     }
-    if (this.kills > 100) {
+    if (this.kills > 50) {
       this.createEnemy();
       this.createEnemy();
       this.createEnemy();
@@ -45,7 +45,7 @@ export default class Game {
   randomPosAtEdges() {
     let random_x = Math.floor(Math.random() * this.dimensions[`width`]);
     let random_y = Math.floor(Math.random() * this.dimensions[`height`]);
-    return [[0, random_y], [random_x, 0], [this.dimensions[`width`], random_y], [random_x, this.dimensions[`height`]]][Math.floor(Math.random() * 3.9999)];
+    return [[0, random_y], [random_x, 0], [this.dimensions[`width`], random_y], [random_x, this.dimensions[`height`]]][Math.floor(Math.random() * 4)];
   }
 
   createEnemy() {
