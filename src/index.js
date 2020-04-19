@@ -19,8 +19,8 @@ const moveLeft = () => game.player.move('left');
 const moveDown = () => game.player.move('down');
 const moveRight = () => game.player.move('right');
 const moveUp = () => game.player.move('up');
-const attack = _.throttle(() => game.player.attack(), 1000, {trailing: false});
-const dunk = _.throttle(() => game.player.dunk(), 2500, {trailing: false});
+const attack = _.throttle(() => game.player.attack(), 500, {trailing: false});
+const dunk = _.throttle(() => game.player.dunk(), 1000, {trailing: false});
 // let view = new GameView(game, canvas.getContext("2d"));
 const gameStart = () => {
   game.start();
