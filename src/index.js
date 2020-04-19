@@ -27,6 +27,7 @@ const gameStart = () => {
   clearInterval(game.menu.renderInt);
   game.menu = null;
   document.removeEventListener('keydown', gameStart);
+  document.removeEventListener('click', gameStart);
   document.addEventListener('keydown', e => {
     if (game.player.state === 'death') return null;
     if (e.code === 'ArrowLeft') {
@@ -85,7 +86,8 @@ window.addEventListener('load', () => {
   game.menu.start();
 }, false);
 
-setTimeout(() => document.addEventListener('keydown', gameStart), 2000);
+setTimeout(() => document.addEventListener('keydown', gameStart), 1000);
+setTimeout(() => document.addEventListener('click', gameStart), 1000);
 
 window.requestAnimFrame = (function (callback) {
   return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
