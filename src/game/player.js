@@ -119,7 +119,7 @@ export default class Player extends Character {
     switch (dir) {
       case 'up':
         if (this.position[1] - 48 < 0) {
-          this.movement[1] = this.position[1];
+          this.movement[1] = -this.position[1];
         } else this.movement[1] = -48;
         this.lastDirUD = 'up';
         this.lastDir = 'up';
@@ -133,7 +133,7 @@ export default class Player extends Character {
         break;
       case 'left':
         if (this.position[0] - 48 < 0) {
-          this.movement[0] = this.position[0];
+          this.movement[0] = -this.position[0];
         } else this.movement[0] = -48;
         this.lastDirLR = 'left';
         this.lastDir = 'left';
