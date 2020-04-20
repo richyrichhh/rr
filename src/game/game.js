@@ -24,6 +24,7 @@ export default class Game {
     this.scoreboard.src = '../src/game/animations/scoreboard-new.png';
     this.items = [];
     this.bosses = 0;
+    this.bossKills = 0;
   }
 
   factory() {

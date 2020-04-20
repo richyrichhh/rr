@@ -141,11 +141,17 @@ export default class Boss extends Enemy {
           if (Math.random() > 0.5) {
             this.game.items.push(new Powerup(this.game, this.position, 'health'));
             this.game.items.push(new Powerup(this.game, this.position, 'health'));
+            this.game.items.push(new Powerup(this.game, this.position, 'health'));
+            this.game.items.push(new Powerup(this.game, this.position, 'health'));
+            this.game.items.push(new Powerup(this.game, this.position, 'health'));
           } else {
             this.game.items.push(new Powerup(this.game, this.position, 'special'));
             this.game.items.push(new Powerup(this.game, this.position, 'special'));
+            this.game.items.push(new Powerup(this.game, this.position, 'special'));
+            this.game.items.push(new Powerup(this.game, this.position, 'special'));
+            this.game.items.push(new Powerup(this.game, this.position, 'special'));
           }
-  
+          this.game.bossKills += 1;
           this.game.chars.splice(this.game.chars.indexOf(this), 1)
           
         }, 750);
