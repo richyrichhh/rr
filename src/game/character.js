@@ -19,7 +19,7 @@ export default class Character {
     this.frameTime = this.frameLength;
     this.offset = [84 / 2, 75 / 2];
     this.centerPos = [this.position[0] + this.offset[0], this.position[1] + this.offset[1]];
-    
+    this.type = 1;
     this.resetAnimation();
     // this.resetAnimation = this.resetAnimation.bind(this);
   }

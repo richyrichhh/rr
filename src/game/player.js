@@ -51,7 +51,7 @@ export default class Player extends Character {
     }
 
     this.life = 5;
-    
+    this.type = 0;
     this.offset = [100 / 2, 140 / 2];
 
     this.centerPos = [this.position[0] + (this.offset[0]) + this.position[1] + (this.offset[1])];

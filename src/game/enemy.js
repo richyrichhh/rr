@@ -37,6 +37,7 @@ export default class Enemy extends Character {
         }
       }
     }
+    this.type = 1;
     this.AI();
   }
 

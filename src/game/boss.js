@@ -37,7 +37,9 @@ export default class Boss extends Enemy {
         }
       }
     }
-  
+
+    this.life = 3;
+    this.type = 1;
     this.offset = [30, 70];
     this.centerPos = [this.position[0] + this.offset[0], this.position[1] + this.offset[1]];
   }
@@ -52,6 +54,8 @@ export default class Boss extends Enemy {
     // }
     img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
     drawImage(ctx, img, pos[0], pos[1], img.width * 2, img.height * 2, 0, (lastDirLR === 'left' ? true : false), false);
+    ctx.fillStyle = 'rgb(0, 255, 0)';
+    ctx.fillRect(pos[0], pos[1] - 20, 50 * (this.life / 3), 10);
   }
 
   resetAnimation() {
@@ -126,24 +130,27 @@ export default class Boss extends Enemy {
 
   die() {
     if (this.state !== 'death') {
-      this.state = 'death';
-      this.frame = 0;
-      this.frameLength = 6;
-      this.frameTime = 6;
-      this.game.kills += 1;
-      setTimeout(() => {
-        if (Math.random() > 0.5) {
-          this.game.items.push(new Powerup(this.game, this.position, 'health'));
-          this.game.items.push(new Powerup(this.game, this.position, 'health'));
-        } else {
-          this.game.items.push(new Powerup(this.game, this.position, 'special'));
-          this.game.items.push(new Powerup(this.game, this.position, 'special'));
-        }
-
-        this.game.chars.splice(this.game.chars.indexOf(this), 1)
-        
-      }, 750);
-      this.game.factory();
+      this.life -= 1;
+      if (this.life <= 0) {
+        this.state = 'death';
+        this.frame = 0;
+        this.frameLength = 6;
+        this.frameTime = 6;
+        this.game.kills += 1;
+        setTimeout(() => {
+          if (Math.random() > 0.5) {
+            this.game.items.push(new Powerup(this.game, this.position, 'health'));
+            this.game.items.push(new Powerup(this.game, this.position, 'health'));
+          } else {
+            this.game.items.push(new Powerup(this.game, this.position, 'special'));
+            this.game.items.push(new Powerup(this.game, this.position, 'special'));
+          }
+  
+          this.game.chars.splice(this.game.chars.indexOf(this), 1)
+          
+        }, 750);
+        this.game.factory();
+      } 
     }
   }
 }

@@ -75,7 +75,7 @@ export default class Game {
     for (var char of this.chars) {
       // console.dir(char);
       // console.log(typeof unit);
-      if (char.__proto__.constructor.name !== unit.__proto__.constructor.name) {
+      if (char.type !== unit.type) {
         if (between(char.centerPos[0], x[0], x[1]) && between(char.centerPos[1], y[0], y[1])) {
           if (char instanceof Enemy && this.specialMeter < 10) this.specialMeter += 1;
           if (char.state !== 'death') char.die();
