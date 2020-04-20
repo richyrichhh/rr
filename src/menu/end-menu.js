@@ -13,9 +13,9 @@ export default class EndMenu {
       this.ctx.drawImage(bg, 0, 0);
       this.ctx.drawImage(img, (this.game.canvas.width / 2) - (530/2), (this.game.canvas.height / 2) - (289/2) - 150);
       this.ctx.fillStyle = '#ffffff';
-      this.ctx.fillText(`You only put down ${this.game.kills} referee${this.game.kills !== 1 ? 's' : ''}!`, this.game.canvas.width / 2 - 240, this.game.canvas.height / 2, 500);
-      this.ctx.fillText(`That's why you don't have any rings, Chuck.`, this.game.canvas.width / 2 - 240, (this.game.canvas.height / 2) + 50, 500);
-      this.ctx.fillText(`Press a key to play again.`, this.game.canvas.width / 2 - 240, (this.game.canvas.height / 2) + 100, 500);
+      this.ctx.fillText(`You only put down ${this.game.kills} referee${this.game.kills !== 1 ? 's' : ''}, and beat Shaq ${this.game.bosses} time${this.game.bosses !== 1 ? 's' : ''}!`, this.game.canvas.width / 2 - 270, this.game.canvas.height / 2, 1000);
+      this.ctx.fillText(`That's why you don't have any rings, Chuck.`, this.game.canvas.width / 2 - 270, (this.game.canvas.height / 2) + 50, 500);
+      this.ctx.fillText(`Press a key to play again.`, this.game.canvas.width / 2 - 270, (this.game.canvas.height / 2) + 100, 500);
 
       setTimeout(() => document.addEventListener('keydown', () => location.reload()), 500);
 

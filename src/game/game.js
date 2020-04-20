@@ -23,7 +23,7 @@ export default class Game {
     this.scoreboard = new Image();
     this.scoreboard.src = '../src/game/animations/scoreboard-new.png';
     this.items = [];
-    this.bosses = 1;
+    this.bosses = 0;
   }
 
   factory() {
@@ -33,16 +33,13 @@ export default class Game {
     if (this.kills > 20) this.createEnemy();
     if (this.kills > 30) {
       this.createEnemy();
-      this.createEnemy();
     }
     if (this.kills > 50) {
       this.createEnemy();
       this.createEnemy();
-      this.createEnemy();
-      this.createEnemy();
     } 
 
-    if (this.kills > 50 * this.bosses) {
+    if (this.kills > 20 + (30 * this.bosses)) {
       this.bosses += 1;
       this.chars.push(new Boss(this));
       return;
