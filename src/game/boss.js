@@ -38,7 +38,7 @@ export default class Boss extends Enemy {
       }
     }
 
-    this.life = 10;
+    this.life = 6;
     this.type = 1;
     this.offset = [30, 70];
     this.centerPos = [this.position[0] + this.offset[0], this.position[1] + this.offset[1]];
@@ -55,7 +55,7 @@ export default class Boss extends Enemy {
     img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
     drawImage(ctx, img, pos[0], pos[1], img.width * 2, img.height * 2, 0, (lastDirLR === 'left' ? true : false), false);
     ctx.fillStyle = 'rgb(0, 255, 0)';
-    if (pos[1] - 20 >= 0) ctx.fillRect(pos[0], pos[1] - 20, 60 * (this.life / 10), 10);
+    if (pos[1] - 20 >= 0) ctx.fillRect(pos[0], pos[1] - 20, 60 * (this.life / 6), 10);
   }
 
   resetAnimation() {
