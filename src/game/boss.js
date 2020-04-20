@@ -1,4 +1,6 @@
 import Enemy from './enemy';
+import { distance, drawImage } from '../util';
+import Powerup from './powerup';
 
 const dirs = ['left', 'down', 'right', 'up'];
 
@@ -50,6 +52,12 @@ export default class Boss extends Enemy {
     // }
     img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
     drawImage(ctx, img, pos[0], pos[1], img.width * 2, img.height * 2, 0, (lastDirLR === 'left' ? true : false), false);
+  }
+
+  resetAnimation() {
+    this.state = 'stand';
+    this.frame = 0;
+    this.frameLength = 4;
   }
 
   AI() {
@@ -135,6 +143,7 @@ export default class Boss extends Enemy {
         this.game.chars.splice(this.game.chars.indexOf(this), 1)
         
       }, 750);
+      this.game.factory();
     }
   }
 }

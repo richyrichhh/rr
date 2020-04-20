@@ -50,6 +50,8 @@ export default class Enemy extends Character {
     setTimeout(() => this.AI(), 1000);
   }
 
+
+
   // startAI() {
   //   setInterval(() => this.AI(), 1000);
   // }
@@ -72,6 +74,5 @@ export default class Enemy extends Character {
         this.game.chars.splice(this.game.chars.indexOf(this), 1)
       }, 750);
     }
-    this.game.factory();
   }
 }

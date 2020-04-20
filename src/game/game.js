@@ -15,7 +15,7 @@ export default class Game {
     this.chars.push(this.player);
     this.player.draw(this.ctx);
     this.interval;
-    this.kills = 0;
+    this.kills = 49;
     this.baseEnemies = 1;
     this.specialMeter = 5;
     this.over = false;
@@ -23,6 +23,7 @@ export default class Game {
     this.scoreboard = new Image();
     this.scoreboard.src = '../src/game/animations/scoreboard-new.png';
     this.items = [];
+    this.bosses = 1;
   }
 
   factory() {
@@ -41,7 +42,8 @@ export default class Game {
       this.createEnemy();
     } 
 
-    if (this.kills > 1 && this.kills % 50 === 0) {
+    if (this.kills > 50 * this.bosses) {
+      this.bosses += 1;
       this.chars.push(new Boss(this));
       return;
     }
@@ -170,6 +172,11 @@ export default class Game {
 
   start() {
     this.ctx.font = '32px verdana, sans-serif';
+    this.createEnemy();
+    this.createEnemy();
+    this.createEnemy();
+    this.createEnemy();
+    this.createEnemy();
     this.factory();
     // requestAnimationFrame(this.step.bind(this));
     // this.interval = setInterval(() => {
