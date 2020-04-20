@@ -62,7 +62,6 @@ export default class Enemy extends Character {
       this.frameTime = 8;
       this.game.kills += 1;
       setTimeout(() => {
-        this.game.chars.splice(this.game.chars.indexOf(this), 1)
         if (Math.random() > 0.9) {
           if (Math.random() > 0.75) {
             this.game.items.push(new Powerup(this.game, this.position, 'health'));
@@ -70,7 +69,9 @@ export default class Enemy extends Character {
             this.game.items.push(new Powerup(this.game, this.position, 'special'));
           }
         }
+        this.game.chars.splice(this.game.chars.indexOf(this), 1)
       }, 750);
     }
+    this.game.factory();
   }
 }

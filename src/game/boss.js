@@ -1,5 +1,7 @@
 import Enemy from './enemy';
 
+const dirs = ['left', 'down', 'right', 'up'];
+
 export default class Boss extends Enemy {
   constructor(game) {
     super(game);
@@ -34,6 +36,105 @@ export default class Boss extends Enemy {
       }
     }
   
-  
+    this.offset = [30, 70];
+    this.centerPos = [this.position[0] + this.offset[0], this.position[1] + this.offset[1]];
+  }
+
+  draw(ctx) {
+    // this.handleMovement();
+    var img = new Image();
+    var pos = this.position;
+    var lastDirLR = this.lastDirLR;
+    // img.onload = function() {
+    //   drawImage(ctx, img, pos[0], pos[1], 84, 75, 0, (lastDirLR === 'left' ? true : false), false);
+    // }
+    img.src = this.animations[this.state].frameData[this.lastDirUD][this.frame];
+    drawImage(ctx, img, pos[0], pos[1], img.width * 2, img.height * 2, 0, (lastDirLR === 'left' ? true : false), false);
+  }
+
+  AI() {
+    if (this.state !== 'death') {
+      this.move(dirs[Math.floor(Math.random() * 4)]);
+      if (this.state !== 'death' && distance(this.position, this.game.player.position) < 150) this.attack();
+    }
+
+    setTimeout(() => this.AI(), 1000);
+  }
+
+  move(dir) {
+    this.state = 'move';
+    this.frameLength = 2;
+    this.updateCenterPos();
+    if (dir === 'up') {
+      if (this.position[1] - 50 < 0) {
+        this.movement[1] = this.position[1];
+      } else this.movement[1] -= 50;
+      this.lastDirUD = 'up';
+      this.lastDir = 'up';
+    }
+    else if (dir === 'down') {
+      if (this.position[1] + 50 > this.game.dimensions['height']) {
+        this.movement[1] = this.game.dimensions['height'] - this.position[1];
+      } else this.movement[1] += 50;
+      this.lastDirUD = 'down';
+      this.lastDir = 'down';
+    }
+    else if (dir === 'left') {
+      if (this.position[0] - 50 < 0) {
+        this.movement[0] = this.position[0];
+      } else this.movement[0] -= 50;
+      this.lastDirLR = 'left';
+      this.lastDir = 'left';
+    }
+    else if (dir === 'right') {
+      if (this.position[0] + 50 > this.game.dimensions['width']) {
+        this.movement[0] = this.game.dimensions['width'] - this.position[0];
+      } else this.movement[0] += 50;
+      this.lastDirLR = 'right';
+      this.lastDir = 'right';
+    }
+
+  }
+
+  attack() {
+    if (this.state === 'death') return null;
+    this.state = 'attack';
+    this.frameLength = 2;
+    this.frameTime = 2;
+    this.frame = 0;
+    this.updateCenterPos();
+    let x;
+    let y;
+    if (this.lastDirLR === 'left') {
+      x = [this.centerPos[0] - 100, this.centerPos[0] + 10];
+      y = [this.centerPos[1] - 40, this.centerPos[1] + 40];
+    }
+    else if (this.lastDirLR === 'right') {
+      x = [this.centerPos[0] - 10, this.centerPos[0] + 100];
+      y = [this.centerPos[1] - 40, this.centerPos[1] + 40];
+    }
+    this.game.handleAttack(this, x, y);
+  }
+
+  die() {
+    if (this.state !== 'death') {
+      this.state = 'death';
+      this.frame = 0;
+      this.frameLength = 6;
+      this.frameTime = 6;
+      this.game.kills += 1;
+      setTimeout(() => {
+        if (Math.random() > 0.5) {
+          this.game.items.push(new Powerup(this.game, this.position, 'health'));
+          this.game.items.push(new Powerup(this.game, this.position, 'health'));
+        } else {
+          this.game.items.push(new Powerup(this.game, this.position, 'special'));
+          this.game.items.push(new Powerup(this.game, this.position, 'special'));
+        }
+
+        this.game.chars.splice(this.game.chars.indexOf(this), 1)
+        
+      }, 750);
+    }
   }
 }

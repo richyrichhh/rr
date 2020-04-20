@@ -3,6 +3,7 @@ import Enemy from './enemy';
 import { between } from '../util';
 import StartMenu from '../menu/start-menu';
 import EndMenu from '../menu/end-menu';
+import Boss from './boss';
 
 export default class Game {
   constructor(canvas) {
@@ -39,6 +40,12 @@ export default class Game {
       this.createEnemy();
       this.createEnemy();
     } 
+
+    if (this.kills > 1 && this.kills % 50 === 0) {
+      this.chars.push(new Boss(this));
+      return;
+    }
+
     if (this.player.state !== 'death') setTimeout(() => this.factory(), Math.max(Math.floor(Math.random()*(5000 - (50 * this.kills))), 500));
   }
 
