@@ -49,7 +49,7 @@ export default class Enemy extends Character {
       if (this.position[0] < (this.game.canvas.width / 2) - 200) d.push('right');
       if (this.position[1] < (this.game.canvas.height / 2) - 100) d.push('down');
       if (this.position[1] > (this.game.canvas.height / 2) + 100) d.push('up');
-      this.move(d[Math.floor(Math.random() * 4)]);
+      this.move(d[Math.floor(Math.random() * d.length)]);
       if (!this.dead && distance(this.position, this.game.player.position) < 100) this.attack();
       setTimeout(() => this.AI(), 1000);
     }
