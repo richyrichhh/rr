@@ -67,10 +67,22 @@ export default class Boss extends Enemy {
   AI() {
     if (!this.dead) {
       let d = [...dirs];
-      if (this.position[0] > (this.game.canvas.width / 2) + 200) d.push('left');
-      if (this.position[0] < (this.game.canvas.width / 2) - 200) d.push('right');
-      if (this.position[1] < (this.game.canvas.height / 2) - 100) d.push('down');
-      if (this.position[1] > (this.game.canvas.height / 2) + 100) d.push('up');
+      if (this.position[0] > (this.game.canvas.width / 2) + 200) {
+        d.push('left');
+        d.push('left');
+      }
+      if (this.position[0] < (this.game.canvas.width / 2) - 200) {
+        d.push('right');
+        d.push('right');
+      }
+      if (this.position[1] < (this.game.canvas.height / 2) - 100) {
+        d.push('down');
+        d.push('down');
+      }
+      if (this.position[1] > (this.game.canvas.height / 2) + 100) {
+        d.push('up');
+        d.push('up');
+      }
       this.move(d[Math.floor(Math.random() * d.length)]);
       if (!this.dead && distance(this.position, this.game.player.position) < 150) this.attack();
       setTimeout(() => this.AI(), 1000);
