@@ -15,7 +15,7 @@ export default class Game {
     this.chars.push(this.player);
     this.player.draw(this.ctx);
     this.interval;
-    this.kills = 49;
+    this.kills = 0;
     this.baseEnemies = 1;
     this.specialMeter = 5;
     this.over = false;
