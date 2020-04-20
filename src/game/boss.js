@@ -65,12 +65,12 @@ export default class Boss extends Enemy {
   }
 
   AI() {
-    if (this.state !== 'death') {
+    if (!this.dead) {
       this.move(dirs[Math.floor(Math.random() * 4)]);
-      if (this.state !== 'death' && distance(this.position, this.game.player.position) < 150) this.attack();
+      if (!this.dead && distance(this.position, this.game.player.position) < 150) this.attack();
+      setTimeout(() => this.AI(), 1000);
     }
 
-    setTimeout(() => this.AI(), 1000);
   }
 
   move(dir) {
@@ -109,7 +109,7 @@ export default class Boss extends Enemy {
   }
 
   attack() {
-    if (this.state === 'death') return null;
+    if (this.dead) return null;
     this.state = 'attack';
     this.frameLength = 2;
     this.frameTime = 2;
@@ -129,10 +129,11 @@ export default class Boss extends Enemy {
   }
 
   die() {
-    if (this.state !== 'death') {
+    if (!this.dead) {
       this.life -= 1;
       if (this.life <= 0) {
         this.state = 'death';
+        this.dead = true;
         this.frame = 0;
         this.frameLength = 6;
         this.frameTime = 6;

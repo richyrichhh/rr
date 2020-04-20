@@ -16,6 +16,7 @@ export default class Character {
     this.lastDirUD = 'up';
     this.frame;
     this.frameLength;
+    this.dead = false;
     this.frameTime = this.frameLength;
     this.offset = [84 / 2, 75 / 2];
     this.centerPos = [this.position[0] + this.offset[0], this.position[1] + this.offset[1]];
@@ -131,7 +132,7 @@ export default class Character {
   }
 
   attack() {
-    if (this.state === 'death') return null;
+    if (this.dead) return null;
     this.state = 'attack';
     this.frameLength = 8;
     this.frameTime = 8;
@@ -159,8 +160,9 @@ export default class Character {
   }
 
   die() {
-    if (this.state !== 'death') {
+    if (!this.dead) {
       this.state = 'death';
+      this.dead = true;
       this.frame = 0;
       this.frameLength = 8;
       this.frameTime = 8;

@@ -43,12 +43,12 @@ export default class Enemy extends Character {
 
   
   AI() {
-    if (this.state !== 'death') {
+    if (!this.dead) {
       this.move(dirs[Math.floor(Math.random() * 4)]);
-      if (this.state !== 'death' && distance(this.position, this.game.player.position) < 100) this.attack();
+      if (!this.dead && distance(this.position, this.game.player.position) < 100) this.attack();
+      setTimeout(() => this.AI(), 1000);
     }
 
-    setTimeout(() => this.AI(), 1000);
   }
 
 
@@ -58,8 +58,9 @@ export default class Enemy extends Character {
   // }
 
   die() {
-    if (this.state !== 'death') {
+    if (!this.dead) {
       this.state = 'death';
+      this.dead = true;
       this.frame = 0;
       this.frameLength = 8;
       this.frameTime = 8;

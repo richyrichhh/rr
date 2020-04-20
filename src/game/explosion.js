@@ -26,14 +26,16 @@ export default class Explosion extends Character {
     this.frame = 0;
     this.frameLength = 100;
     this.frameTime = 100;
+    this.dead = false;
 
     // this.game.chars.push(this);
     this.die();
   }
 
   die() {
-    if (this.state !== 'death') {
+    if (!this.dead) {
       this.state = 'death';
+      this.dead = true;
       this.frame = 0;
       this.frameLength = 3;
       this.frameTime = 3;

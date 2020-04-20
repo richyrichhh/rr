@@ -46,7 +46,7 @@ export default class Game {
       return;
     }
 
-    if (this.player.state !== 'death') setTimeout(() => this.factory(), Math.max(Math.floor(Math.random()*(5000 - (50 * this.kills))), 500));
+    if (!this.player.dead) setTimeout(() => this.factory(), Math.max(Math.floor(Math.random()*(5000 - (50 * this.kills))), 500));
   }
 
   randomPosAtEdges() {
@@ -69,14 +69,14 @@ export default class Game {
   // }
 
   handleAttack(unit, x, y) {
-    if (unit.state === 'death' || !unit) return null;
+    if (unit.dead || !unit) return null;
     for (var char of this.chars) {
       // console.dir(char);
       // console.log(typeof unit);
       if (char.type !== unit.type) {
         if (between(char.centerPos[0], x[0], x[1]) && between(char.centerPos[1], y[0], y[1])) {
           if (char instanceof Enemy && this.specialMeter < 10) this.specialMeter += 1;
-          if (char.state !== 'death') char.die();
+          if (!char.dead) char.die();
         }
       }
     }

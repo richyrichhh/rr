@@ -102,8 +102,9 @@ export default class Player extends Character {
   die() {
     this.life -= 1;
     if (this.life <= 0) {
-      if (this.state !== 'death') {
+      if (!this.dead) {
         this.state = 'death';
+        this.dead = true;
         this.frame = 0;
         this.frameLength = 4;
         this.frameTime = 4;
@@ -150,7 +151,7 @@ export default class Player extends Character {
   }
 
   attack() {
-    if (this.state === 'death') return null;
+    if (this.dead) return null;
     this.state = 'attack';
     this.offset = [120 / 2, 140 / 2];
     this.frameLength = 8;
@@ -190,7 +191,7 @@ export default class Player extends Character {
   }
 
   dunk() {
-    if (this.state === 'death' || this.game.specialMeter < 10) return null;
+    if (this.dead || this.game.specialMeter < 10) return null;
     this.game.specialMeter -= 10;
     this.state = 'dunk';
     this.offset = [120 / 2, 175 / 2];

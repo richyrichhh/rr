@@ -29,7 +29,7 @@ const gameStart = () => {
   document.removeEventListener('keydown', gameStart);
   document.removeEventListener('click', gameStart);
   document.addEventListener('keydown', e => {
-    if (game.player.state === 'death') return null;
+    if (game.player.dead) return null;
     if (e.code === 'ArrowLeft') {
       moveLeft();
     };
