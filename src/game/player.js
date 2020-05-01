@@ -108,6 +108,7 @@ export default class Player extends Character {
         this.frame = 0;
         this.frameLength = 4;
         this.frameTime = 4;
+        this.game.dieSound.play();
         setTimeout(() => this.game.gameOver(), 1000);
       }
     }
