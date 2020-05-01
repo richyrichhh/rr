@@ -199,7 +199,7 @@ export default class Player extends Character {
   dunk() {
     if (this.dead || this.game.specialMeter < 10) return null;
     let sound = new Audio('../src/game/sounds/dunk.mp3')
-    sound.volume = 2;
+    sound.volume = 1;
     sound.play();
     this.game.specialMeter -= 10;
     this.state = 'dunk';
