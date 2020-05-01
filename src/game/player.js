@@ -101,6 +101,7 @@ export default class Player extends Character {
 
   die() {
     this.life -= 1;
+    let sound = new Audio();
     if (this.life <= 0) {
       if (!this.dead) {
         this.state = 'death';
@@ -108,9 +109,13 @@ export default class Player extends Character {
         this.frame = 0;
         this.frameLength = 4;
         this.frameTime = 4;
-        this.game.dieSound.play();
+        sound.src = '../src/game/sounds/explosion.mp3';
+        sound.play();
         setTimeout(() => this.game.gameOver(), 1000);
       }
+    } else {
+      sound.src = '../src/game/sounds/grunt.mp3';
+      sound.play();
     }
   }
 

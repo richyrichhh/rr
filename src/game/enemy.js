@@ -43,7 +43,7 @@ export default class Enemy extends Character {
 
   
   AI() {
-    if (!this.dead) {
+    if (!this.dead && !this.game.over) {
       let d = [...dirs];
       if (this.position[0] > (this.game.canvas.width / 2) + 200) { 
         d.push('left');

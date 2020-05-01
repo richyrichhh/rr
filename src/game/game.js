@@ -25,8 +25,6 @@ export default class Game {
     this.items = [];
     this.bosses = 0;
     this.bossKills = 0;
-    this.hitSound = document.getElementById('hit-sound');
-    this.dieSound = document.getElementById('death-sound');
   }
 
   factory() {
@@ -79,7 +77,19 @@ export default class Game {
         if (between(char.centerPos[0], x[0], x[1]) && between(char.centerPos[1], y[0], y[1])) {
           if (char instanceof Enemy && this.specialMeter < 10) this.specialMeter += 1;
           if (!char.dead) char.die();
-          this.hitSound.play();
+          let hitSound = new Audio();
+          switch (unit.type) {
+            case 0:
+              hitSound.src = '../src/game/sounds/punch.mp3';
+              break;
+            case 1:
+              hitSound.src = '../src/game/sounds/punch1.mp3';
+              hitSound.volume = 0.5;
+              break;
+            default:
+              break;
+            }
+          hitSound.play();
         }
       }
     }
