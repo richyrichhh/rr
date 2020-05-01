@@ -81,6 +81,7 @@ export default class Game {
           switch (unit.type) {
             case 0:
               hitSound.src = '../src/game/sounds/punch.mp3';
+              hitSound.volume = 0.7;
               break;
             case 1:
               hitSound.src = '../src/game/sounds/punch1.mp3';
