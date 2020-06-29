@@ -100,7 +100,7 @@ window.requestAnimFrame = (function (callback) {
     };
 })();
 
-const step = () => {
+export const step = () => {
 
   // update
   game.animate();

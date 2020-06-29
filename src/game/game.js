@@ -4,6 +4,7 @@ import { between } from '../util';
 import StartMenu from '../menu/start-menu';
 import EndMenu from '../menu/end-menu';
 import Boss from './boss';
+import { step } from '../index';
 
 export default class Game {
   constructor(canvas) {
@@ -117,6 +118,15 @@ export default class Game {
     this.ctx.font = '16px verdana, sans-serif';
     this.ctx.fillText(`LIFE`, this.canvas.width - 186, this.canvas.height - 39, 150);
     this.ctx.fillText(`SPECIAL${this.specialMeter === 10 ? `: PRESS S` : ""}`, this.canvas.width - 186, this.canvas.height - 12, 150);
+  }
+
+  togglePause() {
+    if (this.pause) {
+      this.pause = false;
+      step();
+    } else {
+      this.pause = true;
+    }
   }
 
   // step() {
