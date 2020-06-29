@@ -44,4 +44,12 @@ Upgrades
 More player characters/upgrades?
 
 
+## Assets from:
+
+Charles Barkley - Charles Barkley Shut up and Jam! by Infogrames North America, Inc.
+
+Referees - WWF Royal Rumble by Acclaim Entertainment, Inc.
+
+Shaq - Shaq Fu by Delphine Software Intl.
+
 This app is not affiliated with Charles Barkley in any way.
