@@ -25,6 +25,7 @@ export default class Game {
     this.items = [];
     this.bosses = 0;
     this.bossKills = 0;
+    this.pause = false;
   }
 
   factory() {

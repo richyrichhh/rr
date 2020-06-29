@@ -110,7 +110,7 @@ const step = () => {
   // draw stuff
   game.draw();
   // request new frame
-  if (game.over === true) return;
+  if (game.over || game.pause) return;
   requestAnimFrame(function () {
     step();
   });
