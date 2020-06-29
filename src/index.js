@@ -21,6 +21,7 @@ const moveRight = () => game.player.move('right');
 const moveUp = () => game.player.move('up');
 const attack = _.throttle(() => game.player.attack(), 500, {trailing: false});
 const dunk = _.throttle(() => game.player.dunk(), 1000, {trailing: false});
+const pause = () => game.togglePause();
 // let view = new GameView(game, canvas.getContext("2d"));
 const gameStart = () => {
   game.start();
@@ -50,6 +51,9 @@ const gameStart = () => {
     };
     if (e.code === 'KeyS') {
       dunk();
+    };
+    if (e.code === 'KeyP') {
+      pause();
     };
   });
 
