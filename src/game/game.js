@@ -127,6 +127,7 @@ export default class Game {
     } else {
       this.pause = true;
     }
+    console.log('toggled pause');
   }
 
   // step() {
