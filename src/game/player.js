@@ -201,6 +201,9 @@ export default class Player extends Character {
     let sound = new Audio('../src/game/sounds/dunk.mp3')
     sound.volume = 1;
     sound.play();
+    let explodeSound = new Audio('../src/game/sounds/explosion.mp3');
+    explodeSound.volume = 1;
+    explodeSound.play();
     this.game.specialMeter -= 10;
     this.state = 'dunk';
     this.offset = [120 / 2, 175 / 2];
