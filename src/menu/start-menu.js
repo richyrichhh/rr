@@ -25,7 +25,8 @@ export default class startMenu {
       this.ctx.fillText(`Movement : ↑↓←→`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 155, 500);
       this.ctx.fillText(`Attack : A`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 180, 500);
       this.ctx.fillText(`Special : S`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 205, 500);
-      this.ctx.fillText(`* Shaq will show up to give the refs a hand at 20 kills, then every 30 kills after that.`, this.game.canvas.width / 2 - 385, this.game.canvas.height / 2 + 250, 1000);
+      this.ctx.fillText(`Toggle Pause : P`, this.game.canvas.width / 2 - 300, this.game.canvas.height / 2 + 230, 500);
+      this.ctx.fillText(`* Shaq will show up to give the refs a hand at 20 kills, then every 30 kills after that.`, this.game.canvas.width / 2 - 385, this.game.canvas.height / 2 + 260, 1000);
       this.ctx.fillText(`Press any key to start`, this.game.canvas.width / 2 + 100, this.game.canvas.height / 2 + 155, 500);
       // document.addEventListener('keydown', gameStart);
 
