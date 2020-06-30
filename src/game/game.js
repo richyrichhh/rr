@@ -200,6 +200,12 @@ export default class Game {
   //     }
   //   }
   // }
+  ambSound() {
+    let bgm = new Audio('../src/game/sounds/cheers.wav');
+    bgm.volume = 0.6;
+    bgm.loop = true;
+    bgm.play();
+  }
 
   start() {
     this.ctx.font = '32px verdana, sans-serif';
@@ -209,6 +215,7 @@ export default class Game {
     this.createEnemy();
     this.createEnemy();
     this.factory();
+    this.ambSound();
     // requestAnimationFrame(this.step.bind(this));
     // this.interval = setInterval(() => {
     //   window.requestAnimationFrame(this.step());
