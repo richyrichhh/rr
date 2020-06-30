@@ -224,6 +224,15 @@ export default class Game {
       endscreen.render();
     }, 250);
   }
+
+  victory() {
+    clearInterval(this.interval);
+    this.over = true;
+    setTimeout(() => {
+      let endscreen = new EndMenu(this, this.ctx, true);
+      endscreen.render();
+    }, 250)
+  }
 }
 
 
