@@ -32,19 +32,21 @@ export default class Game {
   factory() {
     this.createEnemy();
     if (this.kills > 5) this.createEnemy();
-    if (this.kills > 10) this.createEnemy();
-    if (this.kills > 20) this.createEnemy();
-    if (this.kills > 50) {
+    if (this.kills > 10) { 
+      this.createEnemy();
       this.createEnemy();
     }
     if (this.kills > 50) {
       this.createEnemy();
       this.createEnemy();
-    } 
-
-    if (this.kills > 20 + (30 * this.bosses)) {
+      this.createEnemy();
+    }
+ 
+    if (this.kills > 50 + (50 * this.bosses)) {
       this.bosses += 1;
-      this.chars.push(new Boss(this));
+      for (let i = 0; i < this.bosses; i++) {
+        this.chars.push(new Boss(this));
+      }
       return;
     }
 
