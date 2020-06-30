@@ -13,7 +13,7 @@ export default class EndMenu {
     if (!this.win) {
       bg.onload = () => {
         this.ctx.drawImage(bg, 0, 0);
-        this.ctx.drawImage(img, (this.game.canvas.width / 2) - (530 / 2), (this.game.canvas.height / 2) - (289 / 2) - 150);
+        this.ctx.drawImage(img, (this.game.canvas.width / 2) - (300 / 2), (this.game.canvas.height / 2) - (400 / 2) - 150);
         this.ctx.fillStyle = '#ffffff';
         this.ctx.fillText(`You put down ${this.game.kills} referee${this.game.kills !== 1 ? 's' : ''}, and beat up Shaq ${this.game.bossKills} time${this.game.bossKills !== 1 ? 's' : ''}!`, this.game.canvas.width / 2 - 270, this.game.canvas.height / 2, 1000);
         this.ctx.fillText(`Looks like Shaq was carried by Kobe after all.`, this.game.canvas.width / 2 - 270, (this.game.canvas.height / 2) + 50, 500);
