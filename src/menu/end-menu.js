@@ -12,6 +12,8 @@ export default class EndMenu {
     let bg = new Image();
     if (!this.win) {
       bg.onload = () => {
+        img.height = 200;
+        img.width = 150;
         this.ctx.drawImage(bg, 0, 0);
         this.ctx.drawImage(img, (this.game.canvas.width / 2) - (300 / 2), (this.game.canvas.height / 2) - (400 / 2) - 50);
         this.ctx.fillStyle = '#ffffff';
