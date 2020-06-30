@@ -25,6 +25,7 @@ export default class Game {
     this.scoreboard.src = '../src/game/animations/scoreboard-new.png';
     this.items = [];
     this.bosses = 0;
+    this.numBosses = 0;
     this.bossKills = 0;
     this.pause = false;
   }
@@ -46,6 +47,7 @@ export default class Game {
       this.bosses += 1;
       for (let i = 0; i < this.bosses; i++) {
         this.chars.push(new Boss(this));
+        this.numBosses++;
       }
       return;
     }

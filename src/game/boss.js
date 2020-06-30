@@ -173,7 +173,8 @@ export default class Boss extends Enemy {
           this.game.chars.splice(this.game.chars.indexOf(this), 1)
           
         }, 750);
-        this.game.factory();
+        this.game.numBosses--;
+        if (this.game.numBosses === 0) this.game.factory();
       } 
     }
   }
