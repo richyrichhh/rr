@@ -227,7 +227,7 @@ export default class Game {
     clearInterval(this.interval);
     this.over = true;
     setTimeout(() => {
-      let endscreen = new EndMenu(this, this.ctx);
+      let endscreen = new EndMenu(this, this.ctx, false);
       endscreen.render();
     }, 250);
   }

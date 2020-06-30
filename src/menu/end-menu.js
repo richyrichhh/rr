@@ -8,9 +8,9 @@ export default class EndMenu {
 
   render() {
     let img = new Image();
-    !this.win ? img.src = '../src/game/animations/trophy.png' : img.src = '../src/game/animations/gameover.png';
+    this.win ? img.src = '../src/game/animations/trophy.png' : img.src = '../src/game/animations/gameover.png';
     let bg = new Image();
-    if (!this.win) {
+    if (this.win) {
       bg.onload = () => {
         this.ctx.drawImage(bg, 0, 0);
         this.ctx.drawImage(img, (this.game.canvas.width / 2) - (150 / 2), (this.game.canvas.height / 2) - (200 / 2) - 150, 150, 200);
