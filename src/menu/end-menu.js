@@ -2,14 +2,15 @@ export default class EndMenu {
   constructor(game, ctx, win = false) {
     this.game = game;
     this.ctx = ctx;
+    this.win = win;
     this.ctx.font = '25px proxima nova';
   }
 
   render() {
     let img = new Image();
-    img.src = '../src/game/animations/gameover.png';
+    this.win ? img.src = '../src/game/animations/trophy.png' : img.src = '../src/game/animations/gameover.png';
     let bg = new Image();
-    if (win) {
+    if (this.win) {
       bg.onload = () => {
         this.ctx.drawImage(bg, 0, 0);
         this.ctx.drawImage(img, (this.game.canvas.width / 2) - (530 / 2), (this.game.canvas.height / 2) - (289 / 2) - 150);
