@@ -174,7 +174,12 @@ export default class Boss extends Enemy {
           
         }, 750);
         this.game.numBosses--;
-        if (this.game.numBosses === 0) this.game.factory();
+        if (this.game.numBosses === 0) {
+          if (this.game.kills > 200) {
+            this.game.victory();
+          }
+          this.game.factory();
+        }
       } 
     }
   }

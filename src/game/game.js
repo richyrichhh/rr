@@ -40,6 +40,9 @@ export default class Game {
     if (this.kills > 50) {
       this.createEnemy();
       this.createEnemy();
+    }
+    if (this.kills > 150) {
+      this.createEnemy();
       this.createEnemy();
     }
  
