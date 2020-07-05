@@ -20,10 +20,10 @@ The app will consist of a single page with the game. The top of the page will ha
 JavaScript
 
 **game.js ->** actual game “board” where everything will live, tracks score and dropped items and contains the actions the pc and enemy characters can use (attacks)
-
-**player.js ->** object for player character, will track health and applied upgrades too
-
-**enemy.js ->** enemy objects, will have health and will be destroyed when health <= 0
+**character.js ->** base "template" for objects on screen, both players and enemies will inherit from this
+**player.js ->** object for player character, will track health and special ability bar too
+**enemy.js ->** enemy objects, can attack the player but are destroyed in one hit
+**boss.js ->** boss objects, inherits from enemy objects, but will have health like players
 
 
 
@@ -52,4 +52,4 @@ Referees - WWF Royal Rumble by Acclaim Entertainment, Inc.
 
 Shaq - Shaq Fu by Delphine Software Intl.
 
-This app is not affiliated with Charles Barkley in any way.
+This game is not affiliated with Charles Barkley nor any other public person in any way.
