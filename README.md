@@ -16,6 +16,8 @@ The app will consist of a single page with the game. The top of the page will ha
 
 ![Wireframe](https://github.com/richyrichhh/rr/blob/master/images/wireframe.png?raw=true)
 
+![Screenshot](https://github.com/richyrichhh/rr/blob/master/images/gameplay_screen.png?raw=true)
+
 ## Architecture and Technologies
 JavaScript
 
