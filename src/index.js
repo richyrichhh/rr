@@ -101,16 +101,14 @@ window.requestAnimFrame = (function (callback) {
 })();
 
 export const step = () => {
-
-  // update
+  if (game.over || game.pause) return;
+  // get positions
   game.animate();
-  // clear
+  // clear canvas
   game.ctx.clearRect(0, 0, game.canvas.width, game.canvas.height);
-
-  // draw stuff
+  // draw
   game.draw();
   // request new frame
-  if (game.over || game.pause) return;
   requestAnimFrame(function () {
     step();
   });
