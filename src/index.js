@@ -101,7 +101,13 @@ window.requestAnimFrame = (function (callback) {
 })();
 
 export const step = () => {
-  if (game.over || game.pause) return;
+  if (game.over || game.pause) {
+    this.ctx.globalAlpha = 0.2;
+    this.ctx.fillStyle = '#000000';
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.globalAlpha = 1;
+    return;
+  }
   // get positions
   game.animate();
   // clear canvas
