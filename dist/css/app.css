@@ -15,6 +15,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: #333;
+  cursor: default;
 }
 
 #app-top > h1 {
@@ -22,6 +23,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#app-top > h1 > span::selection {
+  background: transparent;
+}
+
+#app-top > h1 > span::-moz-selection {
+  background: transparent;
 }
 
 #heading-top {
