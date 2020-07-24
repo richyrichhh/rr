@@ -19,25 +19,27 @@ The app will consist of a single page with the game. The top of the page will ha
 ## Architecture and Technologies
 JavaScript
 
-**/animations/ ->** character sprites
+**/game/animations/ ->** character sprites
 
-**/sounds/ ->** sound effects
+**/game/sounds/ ->** sound effects
 
-**game.js ->** controls game functionality
+**/game/game.js ->** controls game functionality
 
-**character.js ->** base "template" for objects on screen, both players and enemies will inherit from this
+**/game/character.js ->** base "template" for objects on screen, both players and enemies will inherit from this
 
-**player.js ->** object for player character, will track health and special ability bar too
+**/game/player.js ->** object for player character, will track health and special ability bar too
 
-**enemy.js ->** enemy objects, can attack the player but are destroyed in one hit
+**/game/enemy.js ->** enemy objects, can attack the player but are destroyed in one hit
 
-**boss.js ->** boss objects, inherits from enemy objects, but will have health like players
+**/game/boss.js ->** boss objects, inherits from enemy objects, but will have health like players
 
-**powerup.js ->** item pickups and their mechanics
+**/game/powerup.js ->** item pickups and their mechanics
 
-**explosion.js ->** plays animations that need to be garbage collected after finished playing
+**/game/explosion.js ->** plays animations that need to be garbage collected after finished playing
 
-**/menu/ ->** start and end screens
+**/game/menu/ ->** start and end screens
+
+**/index.js ->** game startup functions
 
 
 ## Assets from:
