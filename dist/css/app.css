@@ -72,12 +72,12 @@ canvas {
   bottom: 0px;
   right: 0px;
   width: calc(0.5 * (100vw - 1200px));
-  background-color: black;
+  background-color: #333;
   color: white;
-  border-left: 2px solid black;
-  border-top: 2px solid black;
-  border-bottom: 4px solid black;
-  border-right: 1px solid black;
+  border-left: 2px solid #333;
+  border-top: 2px solid #333;
+  border-bottom: 4px solid #333;
+  border-right: 1px solid #333;
 }
 
 #controls-list > li:first-child {
