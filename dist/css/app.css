@@ -77,7 +77,7 @@ canvas {
   border-left: 2px solid black;
   border-top: 2px solid black;
   border-bottom: 4px solid #333;
-  border-right: 1px solid #333;
+  border-right: 1px solid black;
   border-radius: 5px;
 }
 
