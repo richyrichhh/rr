@@ -20,14 +20,23 @@ The app will consist of a single page with the game. The top of the page will ha
 JavaScript
 
 **/animations/ ->** character sprites
+
 **/sounds/ ->** sound effects
+
 **game.js ->** controls game functionality
+
 **character.js ->** base "template" for objects on screen, both players and enemies will inherit from this
+
 **player.js ->** object for player character, will track health and special ability bar too
+
 **enemy.js ->** enemy objects, can attack the player but are destroyed in one hit
+
 **boss.js ->** boss objects, inherits from enemy objects, but will have health like players
+
 **powerup.js ->** item pickups and their mechanics
+
 **explosion.js ->** plays animations that need to be garbage collected after finished playing
+
 **/menu/ ->** start and end screens
 
 
