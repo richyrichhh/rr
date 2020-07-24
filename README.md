@@ -14,36 +14,21 @@ Users will be able to:
 ## Wireframes
 The app will consist of a single page with the game. The top of the page will have a title and banner. The game itself will have the health bar and score at the top, with the player character along with surrounding enemies shown. The control scheme for the game as well as links to my GitHub/LinkedIn will be at the bottom.
 
-![Wireframe](https://github.com/richyrichhh/rr/blob/master/images/wireframe.png?raw=true)
-
 ![Screenshot](https://github.com/richyrichhh/rr/blob/master/images/gameplay_screen.png?raw=true)
 
 ## Architecture and Technologies
 JavaScript
 
-**game.js ->** actual game “board” where everything will live, tracks score and dropped items and contains the actions the pc and enemy characters can use (attacks)
+**/animations/ ->** character sprites
+**/sounds/ ->** sound effects
+**game.js ->** controls game functionality
 **character.js ->** base "template" for objects on screen, both players and enemies will inherit from this
 **player.js ->** object for player character, will track health and special ability bar too
 **enemy.js ->** enemy objects, can attack the player but are destroyed in one hit
 **boss.js ->** boss objects, inherits from enemy objects, but will have health like players
-
-
-
-## Implementation Timeline
-**Day 1:** Set up Node, get project set up with the 3 core files, build basic board, get key binds working
-
-**Day 2-3:** Set up player character and attacks/actions, goal to have a moving player character on the game board (not yet populated by enemies)
-
-**Day 4:** Copy and paste player character model to make enemies, build basic AI
-
-## Bonus Features
-Upgrades
-
-Smooth animations
-
-Upgrades
-
-More player characters/upgrades?
+**powerup.js ->** item pickups and their mechanics
+**explosion.js ->** plays animations that need to be garbage collected after finished playing
+**/menu/ ->** start and end screens
 
 
 ## Assets from:
