@@ -4,7 +4,7 @@
 From Final Fight to Streets of Rage to Dynasty Warriors, beat em up games have been an arcade staple for over a generation. The purpose of the game is to provide entertainment to users who will control a character to fight endless hordes of enemies to try and achieve a high score.
 
 ## Functionality & MVP
-Users will be able to:
+Users are able to:
 +	 Move around a stage
 +  Attack with animations
 +	 Be attacked by enemies with animations
