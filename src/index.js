@@ -102,10 +102,12 @@ window.requestAnimFrame = (function (callback) {
 
 export const step = () => {
   if (game.over || game.pause) {
-    game.ctx.globalAlpha = 0.2;
+    game.ctx.globalAlpha = 0.6;
     game.ctx.fillStyle = 'black';
     game.ctx.fillRect(0, 0, game.canvas.width, game.canvas.height);
     game.ctx.globalAlpha = 1;
+
+
     return;
   }
   // get positions
