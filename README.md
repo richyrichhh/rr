@@ -41,6 +41,8 @@ JavaScript
 
 **/index.js ->** game startup functions
 
+**/util.js ->** contains helper methods
+
 
 ## Assets from:
 
