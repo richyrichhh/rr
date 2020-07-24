@@ -125,6 +125,13 @@ export default class Game {
     this.ctx.font = '16px verdana, sans-serif';
     this.ctx.fillText(`LIFE`, this.canvas.width - 186, this.canvas.height - 39, 150);
     this.ctx.fillText(`SPECIAL${this.specialMeter === 10 ? `: PRESS S` : ""}`, this.canvas.width - 186, this.canvas.height - 12, 150);
+
+    if (this.pause) {
+      this.ctx.globalAlpha = 0.2;
+      this.ctx.fillStyle = '#000000';
+      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.globalAlpha = 1;
+    }
   }
 
   togglePause() {
