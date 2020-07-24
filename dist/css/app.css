@@ -79,6 +79,11 @@ canvas {
   border-bottom: 4px solid #333;
   border-right: 1px solid black;
   border-radius: 5px;
+  cursor: default;
+}
+
+#controls-list > li:active {
+  background-color: #333;
 }
 
 #controls-list > li:first-child {
