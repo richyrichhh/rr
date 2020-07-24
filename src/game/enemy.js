@@ -83,7 +83,7 @@ export default class Enemy extends Character {
       this.frameTime = 8;
       this.game.kills += 1;
       setTimeout(() => {
-        if (Math.random() > 0.9) {
+        if (Math.random() > 0.88) {
           if (Math.random() > 0.6) {
             this.game.items.push(new Powerup(this.game, this.position, 'health'));
           } else {
