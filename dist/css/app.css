@@ -82,8 +82,12 @@ canvas {
   cursor: default;
 }
 
-#controls-list > li:active {
-  background-color: #333;
+#controls-list > li::selection {
+  background: transparent;
+}
+
+#controls-list > li::-moz-selection {
+  background: transparent;
 }
 
 #controls-list > li:first-child {
