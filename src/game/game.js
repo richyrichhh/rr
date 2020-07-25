@@ -166,7 +166,7 @@ export default class Game {
   //   });
   // }
 
-  animate() {
+  updatePos() {
     for (var char of this.chars) {
       if (char.frameTime > char.frameLength) char.frameTime = char.frameLength;
       if (char.frameTime > 0) char.frameTime -= 1;

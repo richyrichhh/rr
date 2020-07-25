@@ -105,13 +105,9 @@ export const step = () => {
     pauseScreen();
     return;
   }
-  // get positions
-  game.animate();
-  // clear canvas
+  game.updatePos();
   game.ctx.clearRect(0, 0, game.canvas.width, game.canvas.height);
-  // draw
   game.draw();
-  // request new frame
   requestAnimFrame(function () {
     step();
   });
