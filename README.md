@@ -88,7 +88,23 @@ const drawImage = (context, img, x, y, width, height, deg, flip, flop, center) =
 }
 ```
 
-**``**
+**`Step`**
+
+The following code handles each individual "step" of the game. It starts by checking if the game should be running. Afterwards, it takes every object on the board, updates the positions of the ones in motion, clears the screen, then renders the correct frame of that object's sprite. This is done about 15 times a second in this game.
+```
+export const step = () => {
+  if (game.over || game.pause) {
+    pauseScreen();
+    return;
+  }
+  game.updatePos();
+  game.ctx.clearRect(0, 0, game.canvas.width, game.canvas.height);
+  game.draw();
+  requestAnimFrame(function () {
+    step();
+  });
+}
+```
 
 ## Assets from:
 
