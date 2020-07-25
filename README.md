@@ -44,6 +44,52 @@ JavaScript
 **/util.js ->** contains helper methods
 
 
+## Code Snippets:
+
+**`Between`**
+
+The following code is a simple utility used to return if an object is located within a range. This is used extensively for hit detection in the game.
+
+```
+const between = (num, a, b) => {
+  let min = Math.min(a, b),
+    max = Math.max(a, b);
+  return num > min && num < max;
+}
+```
+
+**`Draw`**
+
+The following code is a custom drawImage method that allows the image to be flipped horizontally or vertically. This allows sprite-based animations with significantly less number of individual frames, as left can simply be the reverse of right.
+
+```
+const drawImage = (context, img, x, y, width, height, deg, flip, flop, center) => {
+  context.save();
+
+  if (typeof width === "undefined") width = img.width;
+  if (typeof height === "undefined") height = img.height;
+  if (typeof center === "undefined") center = false;
+
+  if (center) {
+    x -= width / 2;
+    y -= height / 2;
+  }
+
+  let flipScale;
+  let flopScale;
+  context.translate(x + width / 2, y + height / 2);
+  var rad = 2 * Math.PI - deg * Math.PI / 180;
+  context.rotate(rad);
+  if (flip) flipScale = -1; else flipScale = 1;
+  if (flop) flopScale = -1; else flopScale = 1;
+  context.scale(flipScale, flopScale);
+  context.drawImage(img, -width / 2, -height / 2, width, height);
+  context.restore();
+}
+```
+
+**``**
+
 ## Assets from:
 
 Charles Barkley - Charles Barkley Shut up and Jam! by Infogrames North America, Inc.

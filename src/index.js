@@ -106,7 +106,6 @@ export const step = () => {
     game.ctx.fillStyle = 'black';
     game.ctx.fillRect(0, 0, game.canvas.width, game.canvas.height);
     game.ctx.globalAlpha = 1;
-
     game.ctx.fillStyle = 'white';
     game.ctx.font = 'bold 16px verdana, sans-serif';
     game.ctx.fillText(`||`, 10, 20);
@@ -123,3 +122,4 @@ export const step = () => {
     step();
   });
 }
+
