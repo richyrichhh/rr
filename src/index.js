@@ -102,13 +102,7 @@ window.requestAnimFrame = (function (callback) {
 
 export const step = () => {
   if (game.over || game.pause) {
-    game.ctx.globalAlpha = 0.6;
-    game.ctx.fillStyle = 'black';
-    game.ctx.fillRect(0, 0, game.canvas.width, game.canvas.height);
-    game.ctx.globalAlpha = 1;
-    game.ctx.fillStyle = 'white';
-    game.ctx.font = 'bold 16px verdana, sans-serif';
-    game.ctx.fillText(`||`, 10, 20);
+    pauseScreen();
     return;
   }
   // get positions
@@ -123,3 +117,12 @@ export const step = () => {
   });
 }
 
+const pauseScreen = () => {
+  game.ctx.globalAlpha = 0.6;
+  game.ctx.fillStyle = 'black';
+  game.ctx.fillRect(0, 0, game.canvas.width, game.canvas.height);
+  game.ctx.globalAlpha = 1;
+  game.ctx.fillStyle = 'white';
+  game.ctx.font = 'bold 16px verdana, sans-serif';
+  game.ctx.fillText(`||`, 10, 20);
+}
