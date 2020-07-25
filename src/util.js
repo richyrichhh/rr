@@ -46,26 +46,26 @@ export const distance = (pos0, pos1) => {
   return Math.sqrt(a * a + b * b);
 }
 
-export const debounce = (func, delay) => {
-  let debounceTimer
-  return function () {
-    const context = this
-    const args = arguments
-    clearTimeout(debounceTimer)
-    debounceTimer
-      = setTimeout(() => func.apply(context, args), delay)
-  }
-}  
+// export const debounce = (func, delay) => {
+//   let debounceTimer
+//   return function () {
+//     const context = this
+//     const args = arguments
+//     clearTimeout(debounceTimer)
+//     debounceTimer
+//       = setTimeout(() => func.apply(context, args), delay)
+//   }
+// }  
 
-export const throttle = (func, limit) => {
-  let inThrottle
-  return function () {
-    const args = arguments
-    const context = this
-    if (!inThrottle) {
-      func.apply(context, args)
-      inThrottle = true
-      setTimeout(() => inThrottle = false, limit)
-    }
-  }
-}
+// export const throttle = (func, limit) => {
+//   let inThrottle
+//   return function () {
+//     const args = arguments
+//     const context = this
+//     if (!inThrottle) {
+//       func.apply(context, args)
+//       inThrottle = true
+//       setTimeout(() => inThrottle = false, limit)
+//     }
+//   }
+// }
