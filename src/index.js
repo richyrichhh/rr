@@ -13,12 +13,64 @@ window.Player = Player;
 window.Enemy = Enemy;
 window.Character = Character;
 
+let movingLeft = false;
+let movingRight = false;
+let movingUp = false;
+let movingDown = false;
 
 
-const moveLeft = () => game.player.move('left');
-const moveDown = () => game.player.move('down');
-const moveRight = () => game.player.move('right');
-const moveUp = () => game.player.move('up');
+const moveLeft = () => {
+  if (movingLeft) {
+    game.player.move('left');
+    setTimeout(moveLeft, 100);
+  } 
+}
+const moveDown = () => {
+  if (movingDown) {
+    game.player.move('down');
+    setTimeout(moveDown, 100);
+  } 
+}
+const moveRight = () => {
+  if (movingRight) {
+    game.player.move('right');
+    setTimeout(moveRight, 100);
+  } 
+}
+const moveUp = () => {
+  if (movingUp) {
+    game.player.move('up');
+    setTimeout(moveUp, 100);
+  } 
+}
+const startMoveLeft = () => {
+  if (!movingLeft) {
+    movingLeft = true;
+    moveLeft();
+  }
+}
+const startMoveDown = () => {
+  if (!movingDown) {
+    movingDown = true;
+    moveDown();
+  }
+}
+const startMoveRight = () => {
+  if (!movingRight) {
+    movingRight = true;
+    moveRight();
+  }
+}
+const startMoveUp = () => {
+  if (!movingUp) {
+    movingUp = true;
+    moveUp();
+  }
+}
+const stopLeft = () => movingLeft = false;
+const stopDown = () => movingDown = false;
+const stopRight = () => movingRight = false;
+const stopUp = () => movingUp = false;
 const attack = _.throttle(() => game.player.attack(), 500, {trailing: false});
 const dunk = _.throttle(() => game.player.dunk(), 1000, {trailing: false});
 const pause = () => game.togglePause();
@@ -32,19 +84,19 @@ const gameStart = () => {
   document.addEventListener('keydown', e => {
     if (game.player.dead) return null;
     if (e.code === 'ArrowLeft') {
-      moveLeft();
+      startMoveLeft();
     };
 
     if (e.code === 'ArrowDown') {
-      moveDown();
+      startMoveDown();
     };
 
     if (e.code === 'ArrowRight') {
-      moveRight();
+      startMoveRight();
     };
 
     if (e.code === 'ArrowUp') {
-      moveUp();
+      startMoveUp();
     };
     if (e.code === 'KeyA') {
       attack();
@@ -54,6 +106,26 @@ const gameStart = () => {
     };
     if (e.code === 'KeyP') {
       pause();
+    };
+  });
+
+
+  document.addEventListener('keyup', e => {
+    if (game.player.dead) return null;
+    if (e.code === 'ArrowLeft') {
+      stopLeft();
+    };
+
+    if (e.code === 'ArrowDown') {
+      stopDown();
+    };
+
+    if (e.code === 'ArrowRight') {
+      stopRight();
+    };
+
+    if (e.code === 'ArrowUp') {
+      stopUp();
     };
   });
 
